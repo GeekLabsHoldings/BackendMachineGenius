@@ -1,0 +1,9 @@
+app.patch('/users/:id', async (req, res) => {
+    const user = await User.findByPk(req.params.id);
+    if (user) {
+        await user.update(req.body);
+        res.json(user);
+    } else {
+        res.status(404).json({ message: 'User not found' });
+    }
+});
