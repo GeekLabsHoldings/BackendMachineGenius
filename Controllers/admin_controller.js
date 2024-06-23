@@ -1,15 +1,13 @@
-const { sequelize, User } = require("../Models/Users/user_model");
+const { sequelize, User } = require("../Models/Admins/admin_model");
 const { generateToken }= require("../Middlewares/create_token");
 
-
-const get_all_users = async (req, res) => {
+const get_all_admins = async (req, res) => {
     const users = await User.findAll();
         res.json(users);
 }
-
-const register_new_user = async (req, res) => {
+const register_new_admin = async (req, res) => {
     try {
-        const { email, password, department } = req.body;
+        const { email, password, name, department, role } = req.body;
 
         // Check if email already exists
         const existing_user = await User.findOne({ where: { email } });
@@ -17,24 +15,23 @@ const register_new_user = async (req, res) => {
             return res.status(400).json({ error: "Email already exists" });
         }
 
-        const new_user = await User.create({ email, password, department });
+        // Create the user
+        let new_user = await User.create({ email, password, name, department, role });
+
+        // Generate a token for the new user
         const token = generateToken(new_user);
-        res.status(201).json({ user: new_user, token });
+
+        // Update the user with the token
+        new_user.token = token;
+        await new_user.save();
+
+        // Send response with the new user data
+        res.status(201).json({ user: new_user });
     } catch (err) {
         console.error("Error registering user:", err);
         res.status(500).json({ error: "Internal Server Error" });
     }
-}
-const get_single_user = async (req, res) => {
-    const user = await User.findByPk(req.params.id);
-    if (user) {
-        await user.update(req.body);
-        res.json(user);
-    } else {
-        res.status(404).json({ message: 'User not found' });
-    }
-}
-
+};
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -51,21 +48,9 @@ const login = async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 }
-
-const delete_user = async (req, res) => {
-    const user = await User.findByPk(req.params.id);
-    if (user) {
-        await user.destroy();
-        res.json({ message: 'User deleted' });
-    } else {
-        res.status(404).json({ message: 'User not found' })
-    }
-}
 module.exports =
 {
-    get_all_users,
-    register_new_user,
-    get_single_user,
-    login,
-    delete_user
+    get_all_admins,
+    register_new_admin,
+    login
 }

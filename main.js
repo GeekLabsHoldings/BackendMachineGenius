@@ -1,27 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Controllers = require('./Controllers/user_controllers')
-require('dotenv').config()
 
+require('dotenv').config()
 const app = express();
-// const port = 3000;
 
 // Middleware for parsing request body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// CRUD routes for User model
-app.get('/users', Controllers.get_all_users);
 
-app.get('/users/:id', Controllers.get_single_user);
+// import routes file
+const A_routes = require('./Routes/admin_routes')
+const U_routes = require('./Routes/user_routes')
+const T_routes = require('./Routes/task_routes')
 
-app.post('/users', Controllers.register_new_user);
+app.use('/',A_routes)
+app.use('/',U_routes)
+app.use('/',T_routes)
 
-app.delete('/users/:id', Controllers.delete_user);
 
-app.post('/login', Controllers.login);
-
-// Start server
 app.listen(process.env.port, () => {
     console.log(`Server listening on http://localhost:${process.env.port}`);
 });
