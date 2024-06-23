@@ -7,7 +7,7 @@ const get_all_tasks = async (req, res) => {
 
 const add_new_task = async (req, res) => {
     try {
-        const { description, department } = req.body;
+        const { description, department , progress } = req.body;
 
         // // Check if email already exists
         // const existing_user = await User.findOne({ where: { email } });
@@ -15,7 +15,7 @@ const add_new_task = async (req, res) => {
         //     return res.status(400).json({ error: "Email already exists" });
         // }
 
-        const new_task = await Task.create({ description, department });
+        const new_task = await Task.create({ description, department , progress});
         res.status(201).json({ task: new_task});
     } catch (err) {
         console.error("Error registering user:", err);
@@ -32,9 +32,20 @@ const delete_task = async (req, res) => {
         res.status(404).json({ message: 'Task not found' })
     }
 }
+
+const update_task = async (req, res) =>{
+    const task = await Task.findByPk(req.params.id);
+    if (task) {
+        await task.update(req.body);
+        res.json(task);
+    } else {
+        res.status(404).json({ message: 'Task not found' });
+    }
+}
 module.exports =
 {
     get_all_tasks,
     add_new_task,
-    delete_task
+    delete_task,
+    update_task
 }

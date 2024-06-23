@@ -26,6 +26,11 @@ Task.init(
     {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    progress:
+    {
+        type: DataTypes.STRING,
+        allowNull:true
     }
 }, 
 {  sequelize,

@@ -11,6 +11,6 @@ const Controllers = require('../Controllers/task_controller')
 router.get('/tasks' , Controllers.get_all_tasks);
 router.post('/tasks' ,  verifyToken , accessUser.allowedTo(userRoles.ADMIN) ,Controllers.add_new_task);
 router.delete('/tasks/:id' ,  verifyToken , accessUser.allowedTo(userRoles.ADMIN) ,Controllers.delete_task);
-
+router.patch('/tasks/:id' ,  verifyToken , accessUser.allowedTo(userRoles.ADMIN) ,Controllers.update_task);
 module.exports = router
 module.exports.msg = msg
