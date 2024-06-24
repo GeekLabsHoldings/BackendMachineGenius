@@ -1,4 +1,5 @@
 const { sequelize, User } = require("../Models/Users/user_model");
+const { sequelize_task, Task } = require("../Models/Tasks/task_model");
 const { generateToken }= require("../Middlewares/create_token");
 
 
@@ -27,12 +28,18 @@ const register_new_user = async (req, res) => {
 }
 const get_single_user = async (req, res) => {
     const user = await User.findByPk(req.params.id);
+    const user_id = req.params.id
+    const tasks = await Task.findAll({ where: { user_id } });
     if (user) {
         await user.update(req.body);
-        res.json(user);
+        res.json({
+            user,
+            tasks
+        });
     } else {
         res.status(404).json({ message: 'User not found' });
     }
+    // console.log("Tasks:-" , tasks)
 }
 
 const login = async (req, res) => {

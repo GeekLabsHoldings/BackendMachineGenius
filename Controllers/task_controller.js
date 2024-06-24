@@ -7,7 +7,7 @@ const get_all_tasks = async (req, res) => {
 
 const add_new_task = async (req, res) => {
     try {
-        const { description, department , progress } = req.body;
+        const {user_id, description, department , progress } = req.body;
 
         // // Check if email already exists
         // const existing_user = await User.findOne({ where: { email } });
@@ -15,7 +15,7 @@ const add_new_task = async (req, res) => {
         //     return res.status(400).json({ error: "Email already exists" });
         // }
 
-        const new_task = await Task.create({ description, department , progress});
+        const new_task = await Task.create({ user_id, description , department , progress});
         res.status(201).json({ task: new_task});
     } catch (err) {
         console.error("Error registering user:", err);

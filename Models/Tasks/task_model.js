@@ -17,6 +17,11 @@ class Task extends Model
 
 Task.init(
 {
+    user_id:
+    {
+        type: DataTypes.NUMBER,
+        allowNull:true
+    },
     description:
     {
         type: DataTypes.STRING,
