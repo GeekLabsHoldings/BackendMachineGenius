@@ -7,16 +7,19 @@ const get_all_admins = async (req, res) => {
 }
 const register_new_admin = async (req, res) => {
     try {
-        const { email, password, name, department, role } = req.body;
+        const { email, password, name, department, role , theme } = req.body;
 
         // Check if email already exists
         const existing_user = await User.findOne({ where: { email } });
         if (existing_user) {
             return res.status(400).json({ error: "Email already exists" });
         }
-
+        const existing_theme = await User.findOne({ where: { theme } });
+        if (existing_theme) {
+            return res.status(400).json({ error: "Please Change the EPM. theme" });
+        }
         // Create the user
-        let new_user = await User.create({ email, password, name, department, role });
+        let new_user = await User.create({ email, password, name, department, role , theme});
 
         // Generate a token for the new user
         const token = generateToken(new_user);

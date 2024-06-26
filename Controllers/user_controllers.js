@@ -10,15 +10,18 @@ const get_all_users = async (req, res) => {
 
 const register_new_user = async (req, res) => {
     try {
-        const { email, password, department } = req.body;
+        const { email, password, department , theme} = req.body;
 
         // Check if email already exists
         const existing_user = await User.findOne({ where: { email } });
         if (existing_user) {
             return res.status(400).json({ error: "Email already exists" });
         }
-
-        const new_user = await User.create({ email, password, department });
+        const existing_theme = await User.findOne({ where: { theme } });
+        if (existing_theme) {
+            return res.status(400).json({ error: "Please Change the EPM. theme" });
+        }
+        const new_user = await User.create({ email, password, department , theme });
         const token = generateToken(new_user);
         res.status(201).json({ user: new_user, token });
     } catch (err) {

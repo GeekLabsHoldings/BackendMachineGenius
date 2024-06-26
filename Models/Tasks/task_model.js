@@ -39,7 +39,7 @@ Task.init(
     }
 }, 
 {  sequelize,
-    modelName: 'Taks',
+    modelName: 'Task',
     // hooks: 
     // {
     //     beforeCreate: (user, options) => 

@@ -46,6 +46,11 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
+    theme:
+    {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     token:
     {
         type: DataTypes.STRING
