@@ -6,7 +6,7 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// Function to scrape URLs and text from the main page
+// Function to scrape URLs from the main page
 const scrapeURLs = async () => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
@@ -16,11 +16,10 @@ const scrapeURLs = async () => {
     const ScrapeList = document.querySelectorAll(".tnt-has-block-bg a.tnt-asset-link");
     return Array.from(ScrapeList).map(Scrape => {
       let href = Scrape.getAttribute("href");
-      const text = Scrape.innerText;
       if (!href.startsWith('http')) {
         href = `https://www.thestar.com${href}`;
       }
-      return { href, text };
+      return href;
     });
   });
 
@@ -43,7 +42,7 @@ const scrapeContentFromURL = async (url) => {
   return content;
 };
 
-// API endpoint to scrape URLs and text
+// API endpoint to scrape URLs
 app.get('/scrape-urls', async (req, res) => {
   try {
     const URLs = await scrapeURLs();
@@ -60,11 +59,9 @@ app.get('/scrape-all', async (req, res) => {
     const URLs = await scrapeURLs();
     const allContent = [];
 
-    for (let { href, text } of URLs) {
-      console.log(`Scraping content from: ${href}`);
-
-      const content = await scrapeContentFromURL(href);
-      allContent.push({ url: href, text, content });
+    for (let url of URLs) {
+      const content = await scrapeContentFromURL(url);
+      allContent.push({ url, content });
     }
 
     res.json({ success: true, allContent });
