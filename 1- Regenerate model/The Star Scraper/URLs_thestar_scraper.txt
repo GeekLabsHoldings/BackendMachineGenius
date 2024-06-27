@@ -1,0 +1,34 @@
+const puppeteer = require('puppeteer')
+
+const get_content_from_url = async () => {
+  const browser = await puppeteer.launch({
+    headless: false,
+    defaultViewport: null,
+  });
+
+  // Open a new page
+  const page = await browser.newPage();
+
+  await page.goto("https://www.thestar.com/politics/federal/afn-national-chief-says-child-welfare-funding-to-top-20b-as-chiefs-raise-concerns/article_5a8b7653-09fa-5b00-acc4-dc2d3c8dc021.html", {
+    waitUntil: "domcontentloaded",
+  });
+
+  const content = await page.evaluate(() => {
+  const ScrapeList = document.querySelectorAll(".asset-content p");
+
+  return Array.from(ScrapeList).map((Scrape) => {
+    const text = Scrape.innerText;
+    return text;
+    });
+  });
+
+  // Display the content
+  console.log(content);
+  console.log("---------------------")
+
+  // Close the browser
+  await browser.close();
+};
+
+// Start the scraping
+get_content_from_url();
