@@ -6,9 +6,9 @@ const msg = "This module to handle the request and response of scrapping"
 const scrapeConrollers = require('../Controllers/scrape-all')
 
 
-router.get('/cbc/scrape-all', scrapeConrollers.cbcScrapeAll);
+router.get('/cbc/scrapeall', scrapeConrollers.cbcScrapeAll);
 
-router.get('/thestar/scrape-all', scrapeConrollers.thestarScrapeAll);
+router.get('/thestar/scrapeall', scrapeConrollers.thestarScrapeAll);
 
 router.get('/collect', scrapeConrollers.Collect);
 
