@@ -27,6 +27,6 @@ app.use('/',T_routes)
 app.use('/',S_routes)
 app.use('/',g_routes)
 
-app.listen(process.env.port, () => {
+app.listen(3000, () => {
     console.log(`Server listening on http://localhost:${process.env.port}`);
 });
