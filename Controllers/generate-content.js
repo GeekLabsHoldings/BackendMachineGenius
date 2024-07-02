@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 const generateTitleAndContent = async (content) => {
     try {
-      const prompt = `There are two sites , one from "CBC" and another from "The Star" Check if there are any articles that talk about the same topic in both If yes, merge them and create the good article with a main title. If no, keep them as separate articles. content:\n\n${content}`;
+      const prompt = `There are two sites , one from "CBC" and another from "The Star" Check if there are any articles that talk about the same topic in both If yes, merge them and create the good article with a main title. If no, keep them as separate articles. articles:\n\n${content}`;
       const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
@@ -41,11 +41,11 @@ const generateContent = async (req, res) => {
   
       for (const article of allContent) {
         try {
-          const { title, content } = await generateTitleAndContent(article.content.join(' '));
+          const { title, content } = await generateTitleAndContent(article.article.join(' '));
           articlesWithTitlesAndContent.push({ title, content });
         } catch (error) {
           console.error(`Error generating title and content for content from ${article.url}:`, error);
-          articlesWithTitlesAndContent.push({ url: article.url, title: 'Error generating title', content: 'Error generating content' });
+          articlesWithTitlesAndContent.push({ url: article.url, title: 'Error generating title', article: 'Error generating content' });
         }
       }
   
