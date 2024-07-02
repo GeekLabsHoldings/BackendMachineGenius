@@ -41,7 +41,7 @@ const generateContent = async (req, res) => {
   
       for (const article of allContent) {
         try {
-          const { title, content } = await generateTitleAndContent(article.content.join(' '));
+          const { title, content } = await generateTitleAndContent(article.join(' '));
           articlesWithTitlesAndContent.push({ title, content });
         } catch (error) {
           console.error(`Error generating title and content for content from ${article.url}:`, error);
