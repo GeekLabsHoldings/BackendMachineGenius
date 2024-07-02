@@ -3,7 +3,7 @@ const router = express.Router()
 const msg = "This module to handle the request and response of scrapping"
 
 // Require modules
-const scrapeConrollers = require('../Controllers/scrape-all')
+const scrapeConrollers = require('../Controllers/scrapeAll_controller')
 
 
 router.get('/cbc/scrapeall', scrapeConrollers.cbcScrapeAll);
