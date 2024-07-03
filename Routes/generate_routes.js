@@ -5,11 +5,11 @@ const msg = "This module to handle the request and response of AI generation mod
 // Require modules
 const generateContent = require('../Controllers/generateContent_controller')
 const finalizeContent = require('../Controllers/finalContent_controllers')
-const grammarCheck = require('../Controllers/checkGrammar_controller')
+const grammarCheck = require('../Controllers/finalCheck_controller')
 
 router.get('/generate-content', generateContent.generateContent);
 router.post('/finalize-content', finalizeContent.generateContent);
-router.post('/grammar-check', grammarCheck.check);
+router.post('/final-check', grammarCheck.check);
 
 module.exports = router;
 module.exports.msg = msg
