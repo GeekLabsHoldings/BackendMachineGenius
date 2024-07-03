@@ -22,13 +22,14 @@ const scrapeURLs = async () => {
       });
   
       const URLs = await page.evaluate(() => {
-        const ScrapeList = document.querySelectorAll(".contentListCards a");
+        const ScrapeList = document.querySelectorAll("a.card.cardDefault , a.card.cardText , a.card.cardListing.rightImage:not(a.flag-live) ");
         return Array.from(ScrapeList).map((Scrape) => {
           let href = Scrape.getAttribute("href");
+          let text = Scrape.innerText;
           if (!href.startsWith('http')) {
             href = `https://www.cbc.ca${href}`;
           }
-          return href;
+          return { href, text };
         });
       });
   

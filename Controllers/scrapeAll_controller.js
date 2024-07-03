@@ -9,13 +9,13 @@ const cbcScrapeAll = async (req, res) => {
       const URLs = await cbcScrape.scrapeURLs();
       const allContent = [];
   
-      for (let url of URLs) {
+      for (let { href, text } of URLs) {
         try {
-          const content = await cbcScrape.scrapeContentFromURL(url);
-          allContent.push({ url, content });
+          const content = await cbcScrape.scrapeContentFromURL(href);
+          allContent.push({ url: href, text, content });
         } catch (error) {
           console.error(Error `scraping content from ${url}:`, error);
-          allContent.push({ url, content: 'Error fetching content' });
+          allContent.push({ href, content: 'Error fetching content' });
         }
       }
   
