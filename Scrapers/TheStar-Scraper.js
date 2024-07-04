@@ -20,7 +20,7 @@ const scrapeURLs = async (page) => {
     });
     return URLs;
   } catch (error) {
-    await browser.close();
+    // await browser.close();
     console.error('Error during URL scraping:', error);
     throw error;
   }
