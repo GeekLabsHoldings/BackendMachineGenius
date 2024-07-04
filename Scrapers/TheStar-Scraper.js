@@ -28,12 +28,22 @@ const scrapeURLs = async (page) => {
   
 
 const scrapeContentFromURL = async (page, url) => {
-    await page.goto(url, { waitUntil: 'domcontentloaded' });
+  try {
+    await page.goto(url, {
+      waitUntil: "domcontentloaded",
+      timeout: 60000
+    });
     const content = await page.evaluate(() => {
     const ScrapeList = document.querySelectorAll(".asset-content p:not(.subscriber-offers p)");
       return Array.from(ScrapeList).map(Scrape => Scrape.innerText);
     });
     return content;
+  }
+    catch (error) {
+      await browser.close();
+      console.error(`Error during content scraping from ${url}:`, error);
+      throw error;
+    }
 };
 
 module.exports = 

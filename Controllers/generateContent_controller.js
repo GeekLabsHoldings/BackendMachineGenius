@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 const generateTitleAndContent = async (content) => {
     try {
-      const prompt = `get the articles that related with each oteher or talking about the same genral idea and give them suitable title. content:\n\n${content}`;
+      const prompt = `There are two sites , one from "CBC" and another from "The Star" Check if there are any articles that talk about the same topic in both If yes, merge them and create the good article with a main title. If no, keep them as separate articles. content:\n\n${content}`;
       const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
