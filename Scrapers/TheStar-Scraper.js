@@ -1,7 +1,12 @@
 const puppeteer = require('puppeteer');
 
 const scrapeURLs = async (page) => {
-    await page.goto('https://www.thestar.com/politics/', { waitUntil: 'domcontentloaded' });
+  try {
+    await page.goto("https://www.thestar.com/politics/", {
+      waitUntil: "domcontentloaded",
+      timeout: 60000
+    });
+    // await page.goto('https://www.thestar.com/politics/', { waitUntil: 'domcontentloaded' });
     const URLs = await page.evaluate(() => {
       const ScrapeList = document.querySelectorAll(".tnt-has-block-bg a.tnt-asset-link");
       return Array.from(ScrapeList).map(Scrape => {
@@ -14,6 +19,11 @@ const scrapeURLs = async (page) => {
       });
     });
     return URLs;
+  } catch (error) {
+    await browser.close();
+    console.error('Error during URL scraping:', error);
+    throw error;
+  }
   };
   
 
