@@ -6,13 +6,13 @@ const scrapeCBC = async () => {
     const URLs = await cbcScrape.scrapeURLs();
     const allContent = [];
 
-    for (let { href, text } of URLs) {
+    for (let { href, title } of URLs) {
         try {
             const content = await cbcScrape.scrapeContentFromURL(href);
-            allContent.push({ url: href, text, content });
+            allContent.push({ url: href, title, content });
         } catch (error) {
             console.error(`Error scraping content from ${href}:`, error);
-                allContent.push({ url: href, text, content: 'Error fetching content' });
+                allContent.push({ url: href, title, content: 'Error fetching content' });
         }
     }
     return allContent;
@@ -34,14 +34,18 @@ const scrapeTheStar = async () => {
     try {
         const URLs = await thestarScraper.scrapeURLs(page);
         const allContent = [];
-        for (let { href, text } of URLs) {
+        for (let { href, title } of URLs) {
             console.log(`Scraping content from: ${href}`);
-            try {
+            try 
+            {
                 const content = await thestarScraper.scrapeContentFromURL(page, href);
-                allContent.push({ url: href, text, content });
+                if(title)
+                {
+                    allContent.push({ url: href, title, content });
+                }
             } catch (error) {
                 console.error(`Error scraping content from ${href}:`, error);
-                allContent.push({ url: href, text, content: 'Error fetching content' });
+                allContent.push({ url: href, title, content: 'Error fetching content' });
             }
         }
         return allContent;

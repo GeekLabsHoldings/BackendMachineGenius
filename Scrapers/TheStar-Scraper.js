@@ -6,11 +6,11 @@ const scrapeURLs = async (page) => {
       const ScrapeList = document.querySelectorAll(".tnt-has-block-bg a.tnt-asset-link");
       return Array.from(ScrapeList).map(Scrape => {
         let href = Scrape.getAttribute("href");
-        const text = Scrape.innerText;
+        const title = Scrape.innerText;
         if (!href.startsWith('http')) {
           href = `https://www.thestar.com${href}`;
         }
-        return { href, text };
+        return { href, title };
       });
     });
     return URLs;

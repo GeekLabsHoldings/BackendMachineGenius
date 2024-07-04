@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 const generateTitleAndContent = async (content) => {
     try {
-      const prompt = `remove duplicated and create suitable title for articles. content:\n\n${content}`;
+      const prompt = `read the all conetnt and merge the articles that talk about the same thing. content:\n\n${content}`;
       const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
@@ -36,12 +36,12 @@ const generateContent = async (req, res) => {
         return res.status(500).json({ success: false, error: 'Error fetching scraped content' });
       }
   
-      const allContent = scrapeData.allContent;
+      const allArticles = scrapeData.allArticles;
       const articlesWithTitlesAndContent = [];
   
-      for (const article of allContent) {
+      for (const article of allArticles) {
         try {
-          const { title, content } = await generateTitleAndContent(article.article.join(' '));
+          const { title, content } = await generateTitleAndContent(article.content.join(' '));
           articlesWithTitlesAndContent.push({ title, content });
         } catch (error) {
           console.error(`Error generating title and content for content from ${article.url}:`, error);
