@@ -8,7 +8,7 @@ const openai = new OpenAI({
 const generateTitleAndContent = async (content) => {
     try {
       console.log("------->"+content.selectedContent)
-        const prompt = `Rewrite the following article and create suitable title: \n\n${content.selectedContent}`;
+        const prompt = `collect the sentences that talk about the same thing then generate a one body and create title of them : \n\n${content.selectedContent}`;
         const completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
