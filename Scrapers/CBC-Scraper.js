@@ -69,7 +69,7 @@ const scrapeContentFromURL = async (url) => {
       });
   
       await browser.close();
-      return content;
+      return content.join(' ');
     } catch (error) {
       await browser.close();
       console.error(`Error during content scraping from ${url}:`, error);

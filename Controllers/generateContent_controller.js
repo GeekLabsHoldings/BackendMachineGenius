@@ -5,57 +5,48 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const generateTitleAndContent = async (content) => {
+const generateTitleAndArticles = async (articles) => {
     try {
-      const prompt = `collect the sentences that talk about the same thing then generate a one body and create title of them. and other talk it seperated content:\n\n${content}`;
-      const completion = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
-        messages: [
-          { role: "user", content: prompt },
-        ]
-      });
-  
-      const result = completion.choices[0].message.content.trim();
-      const [title, ...newContent] = result.split('\n');
-      return {
-        title: title.replace("Title: ", "").trim(),
-        content: newContent.join(' ').trim()
-      };
+        // Combining all articles into a single prompt
+        const articlesContent = articles.map((article, index) => `Article ${index + 1}:\n\nURL: ${article.url}\n\nTitle: ${article.title}\n\nContent: ${article.content}`).join('\n\n');
+
+        // Prompt to OpenAI for generating a main title and grouping articles by topic
+        const prompt = `You are given multiple articles. Identify the articles that talk about the same topic and create a main title for each group. Format the response with a main title for each group followed by the list of articles. Each article should include its URL, title, and content. Here is the content:\n\n${articlesContent}`;
+        
+        const completion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "user", content: prompt },
+            ]
+        });
+
+        // The result will include titles and grouped articles
+        const result = completion.choices[0].message.content.trim();
+        return result;
     } catch (error) {
-      console.error("Error generating title and content:", error);
-      throw error;
+        console.error("Error generating title and articles:", error);
+        throw error;
     }
 };
 
 const generateContent = async (req, res) => {
     try {
-      const scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect`);
-      const scrapeData = await scrapeResponse.json();
-  
-      if (!scrapeData.success) {
-        return res.status(500).json({ success: false, error: 'Error fetching scraped content' });
-      }
-  
-      const allArticles = scrapeData.allArticles;
-      const articlesWithTitlesAndContent = [];
-  
-      for (const article of allArticles) {
-        try {
-          const { title, content } = await generateTitleAndContent(article.content.join(' '));
-          articlesWithTitlesAndContent.push({ title, content });
-        } catch (error) {
-          console.error(`Error generating title and content for content from ${article.url}:`, error);
-          articlesWithTitlesAndContent.push({ url: article.url, title: 'Error generating title', content: 'Error generating content' });
+        const scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect`);
+        const scrapeData = await scrapeResponse.json();
+
+        if (!scrapeData.success) {
+            return res.status(500).json({ success: false, error: 'Error fetching scraped content' });
         }
-      }
-  
-      res.json({ success: true, articles: articlesWithTitlesAndContent });
+
+        const allArticles = scrapeData.allArticles;
+        const organizedArticles = await generateTitleAndArticles(allArticles);
+
+        res.json({ success: true, organizedArticles });
     } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
+        res.status(500).json({ success: false, error: error.message });
     }
 }
 
 module.exports = {
     generateContent
 }
-

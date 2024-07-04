@@ -37,7 +37,7 @@ const scrapeContentFromURL = async (page, url) => {
     const ScrapeList = document.querySelectorAll(".asset-content p:not(.subscriber-offers p)");
       return Array.from(ScrapeList).map(Scrape => Scrape.innerText);
     });
-    return content;
+    return content.join(' ');
   }
     catch (error) {
       // await browser.close();
