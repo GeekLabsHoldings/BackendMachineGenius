@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 const generateTitleAndContent = async (content) => {
     try {
-      const prompt = `read the all conetnt and merge the articles that talk about the same thing. content:\n\n${content}`;
+      const prompt = `get the articles that related with each oteher or talking about the same genral idea and give them suitable title. content:\n\n${content}`;
       const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
