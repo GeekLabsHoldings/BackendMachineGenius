@@ -6,12 +6,15 @@ const openai = new OpenAI({
 });
 
 const generateTitleAndArticles = async (articles) => {
+    console.log(articles)
+    console.log("-----------------------")
     try {
         // Combining all articles into a single prompt
-        const articlesContent = articles.map((article, index) => `Article ${index + 1}:\n\nURL: ${article.url}\n\nTitle: ${article.title}\n\nContent: ${article.content}`).join('\n\n');
-
+        const articlesContent = articles.map((article, index) => `${"*".repeat(40)}\n\nArticle ${index + 1}:\n\nURL: ${article.url}\n\nContent: ${article.content}`).join('\n\n');
+        console.log("*".repeat(40))
+        console.log(articlesContent)
         // Prompt to OpenAI for generating a main title and grouping articles by topic
-        const prompt = `You are given multiple articles. Identify the articles that talk about the same topic and create a main title for each group. Format the response with a main title for each group followed by the list of articles. Each article should include its URL, title, and content. Here is the content:\n\n${articlesContent}`;
+        const prompt = `after each * there are article with content if there are article related with each other return it under main title. Here is the content:\n\n${articlesContent}`;
         
         const completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
