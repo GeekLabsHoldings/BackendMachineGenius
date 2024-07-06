@@ -1,0 +1,64 @@
+const OpenAI = require('openai');
+require('dotenv').config();
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+const generateTitleAndArticles = async (articles) => {
+    console.log("articles:-" + articles.length);
+    console.log("-----------------------");
+    try {
+        // First prompt: Remembering articles
+        for (let i = 0; i < articles.length; i++) {
+            console.log(articles[i].content);
+            var firstPrompt = `remember this article:\n\n${articles[i].content}`;
+            await openai.chat.completions.create({
+                model: "gpt-3.5-turbo",
+                messages: [
+                    { role: "user", content: firstPrompt },
+                ]
+            });
+        }
+
+        // Second prompt: Generate a main title and group articles by topic
+        // const articlesContent = articles.map((article, index) => `Article ${index + 1}:\n\nURL: ${article.url}\n\nContent: ${article.content}`).join('\n\n');
+        const secondPrompt = `from given articles could you collect the articles that related with each other or talk about the same thing and retrive it under title ${firstPrompt} `;
+
+        const completion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [
+                { role: "user", content: secondPrompt },
+            ]
+        });
+
+        // The result will include titles and grouped articles
+        const result = completion.choices[0].message.content.trim();
+        return result;
+    } catch (error) {
+        console.error("Error generating title and articles:", error);
+        throw error;
+    }
+};
+
+const generateContent = async (req, res) => {
+    try {
+        const scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect`);
+        const scrapeData = await scrapeResponse.json();
+
+        if (!scrapeData.success) {
+            return res.status(500).json({ success: false, error: 'Error fetching scraped content' });
+        }
+
+        const allArticles = scrapeData.allArticles;
+        const organizedArticles = await generateTitleAndArticles(allArticles);
+
+        res.json({ success: true, organizedArticles });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+}
+
+module.exports = {
+    generateContent
+}
