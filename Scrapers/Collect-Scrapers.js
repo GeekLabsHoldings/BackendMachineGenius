@@ -15,7 +15,7 @@ const scrapeCBC = async () => {
                 allContent.push({ url: href, title, content: 'Error fetching content' });
         }
     }
-    return allContent.slice(0,5);
+    return allContent;
 };
 
 const scrapeTheStar = async () => {
@@ -48,7 +48,7 @@ const scrapeTheStar = async () => {
                 allContent.push({ url: href, title, content: 'Error fetching content' });
             }
         }
-        return allContent.slice(0,5);
+        return allContent;
     } catch (error) {
         console.error('Error scraping all content:', error);
         throw error;

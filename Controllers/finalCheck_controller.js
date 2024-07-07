@@ -25,6 +25,8 @@ const checkGrammarErrors = async (content) => {
 
         const correctedText = correctedPart.trim();
 
+        // console.log("errors:-" + errorsList[0].split(" ")[1])
+        // console.log(errorsPart.indexOf(errorsList[0].split(" ")[1]))
         return {
             errors: errorsList,
             correctedText
@@ -54,7 +56,7 @@ const checkAIContent = async (text) => {
 };
 
 const check = async (req, res) => {
-    console.log("Received request data:", req.body);
+    // console.log("index:", req.body.userContent.indexOf(errorsList[0].split(" ")[1]));
 
     try {
         const userContent = req.body;  // Ensure 'content' is the key in the request body
