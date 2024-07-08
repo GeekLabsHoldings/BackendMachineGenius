@@ -15,5 +15,7 @@ router.get('/collect/STP', scrapeConrollersSTP.Collect);
 
 router.get('/collect/INV', scrapeConrollersINV.Collect);
 
+router.get('/collect2/INV', scrapeConrollersINV.Collect2);
+
 module.exports = router;
 module.exports.msg = msg
