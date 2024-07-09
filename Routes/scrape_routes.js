@@ -13,9 +13,8 @@ router.get('/collect/STP', scrapeConrollersSTP.Collect);
 
 //////////////
 
-router.get('/collect/INV', scrapeConrollersINV.Collect);
-
-router.get('/collect2/INV', scrapeConrollersINV.Collect2);
+router.get('/collectFool/INV', scrapeConrollersINV.CollectFool);
+router.get('/collectInvesting/INV', scrapeConrollersINV.CollectInvesting);
 
 module.exports = router;
 module.exports.msg = msg

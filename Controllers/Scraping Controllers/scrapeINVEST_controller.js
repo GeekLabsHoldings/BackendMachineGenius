@@ -1,19 +1,17 @@
 const puppeteer = require('puppeteer');
-const nvdaScraper = require('../../Scrapers/INVESTOC/The Fool/NVDA-FOOLScrpers')
-const tslaScraper = require('../../Scrapers/INVESTOC/The Fool/TSLA-FOOLScrpers')
-const collectScrapers = require('../../Scrapers/INVESTOC/Collect-FOOLScrapers')
-const collectScrapers2 = require('../../Scrapers/INVESTOC/Collect-YahooScrapers')
+const collect_FOOLScrapers = require('../../Scrapers/INVESTOC/Collect-FOOLScrapers')
+const collect_InvestingScrapers = require('../../Scrapers/INVESTOC/Collect-InvestingScraper')
 
 
-const Collect = async (req, res) => {
+const CollectFool = async (req, res) => {
     try {
         const [nvdaContent, tslaContent, pltrContent, amdContent, appleContent, amznContent] = await Promise.all([
-            collectScrapers.scrapeNVDA(),
-            collectScrapers.scrapeTSLA(),
-            collectScrapers.scrapePLTR(),
-            collectScrapers.scrapeAMD(),
-            collectScrapers.scrapeAPPLE(),
-            collectScrapers.scrapeAMZN(),
+            collect_FOOLScrapers.scrapeNVDA(),
+            collect_FOOLScrapers.scrapeTSLA(),
+            collect_FOOLScrapers.scrapePLTR(),
+            collect_FOOLScrapers.scrapeAMD(),
+            collect_FOOLScrapers.scrapeAPPLE(),
+            collect_FOOLScrapers.scrapeAMZN(),
         ]);
         // console.log("nvdaContent-->" + nvdaContent)
         const allContent_from_sites = [].concat(nvdaContent ,tslaContent, pltrContent, amdContent, appleContent, amznContent);
@@ -23,13 +21,14 @@ const Collect = async (req, res) => {
     }
 };
 
-const Collect2 = async (req, res) => {
+const CollectInvesting = async (req, res) => {
     try {
-        const [pltrContent] = await Promise.all([
-            collectScrapers2.scrapePLTR()
+        const [nvdaContent] = await Promise.all([
+            collect_InvestingScrapers.scrapeNVDA(),
+    
         ]);
         // console.log("nvdaContent-->" + nvdaContent)
-        const allContent_from_sites = [...pltrContent];
+        const allContent_from_sites = [].concat(nvdaContent);
         res.json({ success: true, allArticles: allContent_from_sites });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
@@ -37,6 +36,6 @@ const Collect2 = async (req, res) => {
 };
 
 module.exports = {
-    Collect,
-    Collect2
+    CollectFool,
+    CollectInvesting
 }

@@ -7,17 +7,17 @@ const scrapeURLs = async (page) => {
       timeout: 120000
     });
     const URLs = await page.evaluate(() => {
-      const ScrapeList = document.querySelectorAll(".mb-12 ul li a");
+      const ScrapeList = document.querySelectorAll(".mb-12 ul li .flex .block a");
       return Array.from(ScrapeList).map(Scrape => {
         let href = Scrape.getAttribute("href");
         let title = Scrape.innerText;
         if (!href.startsWith('http')) {
-          href = `https://www.investing.com/equities/nvidia-corp${href}`;
+          href = `https://www.investing.com/analysis${href}`;
         }
+        console.log(href , title);
         return { href, title };
       });
     });
-    console.log("URLs-->" + URLs);
     return URLs;
   } catch (error) {
     // await browser.close();
@@ -34,7 +34,7 @@ const scrapeContentFromURL = async (page, url) => {
       timeout: 120000
     });
     const content = await page.evaluate(() => {
-    const ScrapeList = document.querySelectorAll(".w-full .article_container p");
+    const ScrapeList = document.querySelectorAll("#article p");
       return Array.from(ScrapeList).map(Scrape => Scrape.innerText);
     });
     return content.join(' ');

@@ -1,8 +1,7 @@
 const puppeteer = require('puppeteer');
-const pltrScraper = require('./Yahoo/PLTR-YahooScrapers');
+const nvdaScrape = require('./Investing site/NVDA-Scrappers');
 
-
-const scrapePLTR = async () => {
+const scrapeNVDA = async () => {
     const browser = await puppeteer.launch({
         headless: true,
         args: [
@@ -16,13 +15,13 @@ const scrapePLTR = async () => {
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
 
     try {
-        const URLs = await pltrScraper.scrapeURLs(page);
+        const URLs = await nvdaScrape.scrapeURLs(page);
         const allContent = [];
         for (let { href, title } of URLs) {
             console.log(`Scraping content from: ${href}`);
             try 
             {
-                const content = await pltrScraper.scrapeContentFromURL(page, href);
+                const content = await nvdaScrape.scrapeContentFromURL(page, href);
                 if(title)
                 {
                     allContent.push({ url: href, title, content });
@@ -41,6 +40,7 @@ const scrapePLTR = async () => {
     }
 };
 
+
 module.exports = {
-    scrapePLTR,
-};
+    scrapeNVDA,
+}
