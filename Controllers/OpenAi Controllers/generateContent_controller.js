@@ -80,11 +80,17 @@ const generateTitleAndArticles = async (articles) => {
 
 const generateContent = async (req, res) => {
     try {
-        const brandName = req.body.brandName;  // Ensure 'content' is the key in the request body
+        const brandName = req.body.brandName;
+        const stockName = req.body.stockName;
         if (!brandName) {
             return res.status(400).json({ success: false, error: 'No brand Name provided' });
         }
-        const scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect/${brandName}`);
+        var scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect/${brandName}`);
+
+        if(stockName && brandName)
+        {
+            scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect/${brandName}/${stockName}`);
+        }
         var scrapeData = await scrapeResponse.json();
         
         if (!scrapeData.success) {

@@ -12,12 +12,12 @@ router.get('/thestar/scrapeall', scrapeConrollersSTP.thestarScrapeAll);
 router.get('/collect/STP', scrapeConrollersSTP.Collect);
 
 //////////////
-router.get('/collect/NVDA' , scrapeConrollersINV.CollectNvda)
-router.get('/collect/AAPL' , scrapeConrollersINV.CollectApple)
-router.get('/collect/AMD'  , scrapeConrollersINV.CollectAmd)
-router.get('/collect/AMZN'  , scrapeConrollersINV.CollectAmzn)
-router.get('/collect/PLTR'  , scrapeConrollersINV.CollectPltr)
-router.get('/collect/TSLA'  , scrapeConrollersINV.CollectTsla)
+router.get('/collect/INV/NVDA' , scrapeConrollersINV.CollectNvda)
+router.get('/collect/INV/AAPL' , scrapeConrollersINV.CollectApple)
+router.get('/collect/INV/AMD'  , scrapeConrollersINV.CollectAmd)
+router.get('/collect/INV/AMZN'  , scrapeConrollersINV.CollectAmzn)
+router.get('/collect/INV/PLTR'  , scrapeConrollersINV.CollectPltr)
+router.get('/collect/INV/TSLA'  , scrapeConrollersINV.CollectTsla)
 //////////////
 
 router.get('/collectFool/INV', scrapeConrollersINV.CollectFool);
