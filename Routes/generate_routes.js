@@ -4,13 +4,17 @@ const msg = "This module to handle the request and response of AI generation mod
 
 // Require modules
 const generateContent = require('../Controllers/OpenAi Controllers/generateContent_controller')
-const finalizeContent = require('../Controllers/OpenAi Controllers/finalContent_controllers')
+const finalizeINVContent = require('../Controllers/OpenAi Controllers/finalContentINV_controllers')
+const finalizeSTPContent = require('../Controllers/OpenAi Controllers/finalContentSTP_controllers')
 const grammarCheck = require('../Controllers/OpenAi Controllers/finalCheck_controller')
 
 // router.get('/generate-content', generateContent.generateContent);
 router.post('/generate-content', generateContent.generateContent);
-router.post('/finalize-content', finalizeContent.generateContent);
+router.post('/STP/finalize-content', finalizeSTPContent.generateContent);
 router.post('/final-check', grammarCheck.check);
 
+//////////
+
+router.post('/INV/finalize-content', finalizeINVContent.generateContent);
 module.exports = router;
 module.exports.msg = msg

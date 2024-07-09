@@ -8,7 +8,7 @@ const openai = new OpenAI({
 const generateTitleAndContent = async (content) => {
     try {
       console.log("------->"+content.selectedContent)
-        const prompt = `Genrate good title and Script to make a Youtube vedio from this content : \n\n${content.selectedContent}`;
+        const prompt = `Convert the following article into a video script in a way that is entertaining but still formal. Heres the article: \n\n${content.selectedContent}`;
         const completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
