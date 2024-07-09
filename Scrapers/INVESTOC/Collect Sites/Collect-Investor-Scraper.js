@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const nvdaScrape = require('./Investing site/NVDA-Scrappers');
+const nvdaScrape = require('../NVDA/NVDA-InvplaceScrappers');
 
 const scrapeNVDA = async () => {
     const browser = await puppeteer.launch({
@@ -39,6 +39,7 @@ const scrapeNVDA = async () => {
         await browser.close();
     }
 };
+
 
 
 module.exports = {

@@ -1,7 +1,12 @@
 const puppeteer = require('puppeteer');
-const collect_FOOLScrapers = require('../../Scrapers/INVESTOC/Collect-FOOLScrapers')
-const collect_InvestingScrapers = require('../../Scrapers/INVESTOC/Collect-InvestingScraper')
-
+const collect_FOOLScrapers = require('../../Scrapers/INVESTOC/Collect Sites/Collect-FOOLScrapers')
+const collect_InvestingScrapers = require('../../Scrapers/INVESTOC/Collect Sites/Collect-Investor-Scraper')
+const collect_NVDA = require('../../Scrapers/INVESTOC/NVDA/NVDA-Collector')
+const collect_APPLE = require('../../Scrapers/INVESTOC/AAPL/APPLE-Collector')
+const collect_AMD = require('../../Scrapers/INVESTOC/AMD/AMD-Collector')
+const collect_AMZN = require('../../Scrapers/INVESTOC/AMZN/AMZN-Collector')
+const collect_PLTR = require('../../Scrapers/INVESTOC/PLTR/PLTR-Collector')
+const collect_TSLA = require('../../Scrapers/INVESTOC/TSLA/TSLA-Collector')
 
 const CollectFool = async (req, res) => {
     try {
@@ -13,7 +18,6 @@ const CollectFool = async (req, res) => {
             collect_FOOLScrapers.scrapeAPPLE(),
             collect_FOOLScrapers.scrapeAMZN(),
         ]);
-        // console.log("nvdaContent-->" + nvdaContent)
         const allContent_from_sites = [].concat(nvdaContent ,tslaContent, pltrContent, amdContent, appleContent, amznContent);
         res.json({ success: true, allArticles: allContent_from_sites });
     } catch (error) {
@@ -35,7 +39,98 @@ const CollectInvesting = async (req, res) => {
     }
 };
 
+/////////////------------///////////////////
+const CollectNvda = async (req, res) => {
+    try {
+        const [FoolContent , InvestorContent] = await Promise.all([
+            collect_NVDA.scrape_Fool(),
+            collect_NVDA.scrape_Investor(),
+        ]);
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        res.json({ success: true, allArticles: allContent_from_sites });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+const CollectApple = async (req, res) => {
+    try {
+        const [FoolContent , InvestorContent] = await Promise.all([
+            collect_APPLE.scrape_Fool(),
+            collect_APPLE.scrape_Investor(),
+        ]);
+        // console.log("nvdaContent-->" + nvdaContent)
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        res.json({ success: true, allArticles: allContent_from_sites });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+const CollectAmd = async (req, res) => {
+    try {
+        const [FoolContent , InvestorContent] = await Promise.all([
+            collect_AMD.scrape_Fool(),
+            collect_AMD.scrape_Investor(),
+        ]);
+        // console.log("nvdaContent-->" + nvdaContent)
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        res.json({ success: true, allArticles: allContent_from_sites });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+const CollectAmzn = async (req, res) => {
+    try {
+        const [FoolContent , InvestorContent] = await Promise.all([
+            collect_AMZN.scrape_Fool(),
+            collect_AMZN.scrape_Investor(),
+        ]);
+        // console.log("nvdaContent-->" + nvdaContent)
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        res.json({ success: true, allArticles: allContent_from_sites });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+const CollectPltr = async (req, res) => {
+    try {
+        const [FoolContent , InvestorContent] = await Promise.all([
+            collect_PLTR.scrape_Fool(),
+            collect_PLTR.scrape_Investor(),
+        ]);
+        // console.log("nvdaContent-->" + nvdaContent)
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        res.json({ success: true, allArticles: allContent_from_sites });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+const CollectTsla = async (req, res) => {
+    try {
+        const [FoolContent , InvestorContent] = await Promise.all([
+            collect_TSLA.scrape_Fool(),
+            collect_TSLA.scrape_Investor(),
+        ]);
+        // console.log("nvdaContent-->" + nvdaContent)
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        res.json({ success: true, allArticles: allContent_from_sites });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
 module.exports = {
     CollectFool,
-    CollectInvesting
+    CollectInvesting,
+    //////
+    CollectNvda,
+    CollectApple,
+    CollectAmd,
+    CollectAmzn,
+    CollectPltr,
+    CollectTsla
 }

@@ -1,10 +1,10 @@
 const puppeteer = require('puppeteer');
-const nvdaScrape = require('./The Fool/NVDA-FOOLScrpers');
-const tslaScraper = require('./The Fool/TSLA-FOOLScrpers');
-const pltrScraper = require('./The Fool/PLTR-FOOLScrpers');
-const amdScraper = require('./The Fool/AMD-FOOLScrapers');
-const appleScraper = require('./The Fool/APPLE-FOOLScrapers');
-const amznScraper = require('./The Fool/AMZN-FOOLScapers');
+const nvdaScrape = require('../NVDA/NVDA-FOOLScrpers');
+const tslaScraper = require('../TSLA/TSLA-FOOLScrpers');
+const pltrScraper = require('../PLTR/PLTR-FOOLScrpers');
+const amdScraper = require('../AMD/AMD-FOOLScrapers');
+const appleScraper = require('../AAPL/APPLE-FOOLScrapers');
+const amznScraper = require('../AMZN/AMZN-FOOLScapers');
 
 const scrapeNVDA = async () => {
     const browser = await puppeteer.launch({

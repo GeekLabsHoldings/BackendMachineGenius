@@ -2,17 +2,18 @@ const puppeteer = require('puppeteer');
 
 const scrapeURLs = async (page) => {
   try {
-    await page.goto("https://www.investing.com/equities/nvidia-corp", {
+    await page.goto("https://investorplace.com/stock-quotes/tsla-stock-quote/", {
       waitUntil: "domcontentloaded",
       // timeout: 120000
     });
     const URLs = await page.evaluate(() => {
-      const ScrapeList = document.querySelectorAll("ul[data-test='new-and-analysis-list'] a[data-test='article-title-link']");
+      const ScrapeList = document.querySelectorAll(".articleswrap #ipm-related-articles #recent-stories-list-container .subcat-post-row h2 a");
       return Array.from(ScrapeList).map(Scrape => {
         let href = Scrape.getAttribute("href");
+        // let title = Scrape.querySelector('h2').innerText;
         let title = Scrape.innerText;
         if (!href.startsWith('http')) {
-          href = `https://www.investing.com/analysis${href}`;
+          href = `https://investorplace.com/${href}`;
         }
         console.log(href , title);
         return { href, title };
@@ -28,29 +29,16 @@ const scrapeURLs = async (page) => {
 
 
 const scrapeContentFromURL = async (page, url) => {
-  console.log("URLs--------------->" + url)
-  
   try {
-    console.log("OKKKKKKKKKKKKKKKKKKKKKKKKKKK----->1");
     await page.goto(url, {
       waitUntil: "domcontentloaded",
       timeout: 40000,
     });
-    console.log("OKKKKKKKKKKKKKKKKKKKKKKKKKKK------->2");
-    try{
-      console.log("OKKKKKKKKKKKKKKKKKKKKKKKKKKK------->3");
         const content = await page.evaluate(() => {
-        const ScrapeList = document.querySelectorAll(".article_container .article_WYSIWYG__O0uhw p");      
+        const ScrapeList = document.querySelectorAll(".entry-content p");      
           return Array.from(ScrapeList).map(Scrape => Scrape.innerText);
         });
         return content.join(' ');
-    }
-    catch{
-      console.error(`fe mo4kila fi  ${content}:`, error);
-      throw error;
-    }
-
-
   }
   catch (error) {
     // await browser.close();
