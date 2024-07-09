@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
-const nvdaFoolScrape = require('./NVDA-FOOLScrpers');
-const nvdaInvetorScrape = require('./NVDA-InvplaceScrappers');
+const FoolScrape = require('./NVDA-FOOLScrpers');
+const InvetorScrape = require('./NVDA-InvplaceScrappers');
 
 const scrape_Fool = async () => {
     const browser = await puppeteer.launch({
@@ -16,13 +16,13 @@ const scrape_Fool = async () => {
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
 
     try {
-        const URLs = await nvdaFoolScrape.scrapeURLs(page);
+        const URLs = await FoolScrape.scrapeURLs(page);
         const allContent = [];
         for (let { href, title } of URLs) {
             console.log(`Scraping content from: ${href}`);
             try 
             {
-                const content = await nvdaFoolScrape.scrapeContentFromURL(page, href);
+                const content = await FoolScrape.scrapeContentFromURL(page, href);
                 if(title)
                 {
                     allContent.push({ url: href, title, content });
@@ -55,13 +55,13 @@ const scrape_Investor = async () => {
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
 
     try {
-        const URLs = await nvdaInvetorScrape.scrapeURLs(page);
+        const URLs = await InvetorScrape.scrapeURLs(page);
         const allContent = [];
         for (let { href, title } of URLs) {
             console.log(`Scraping content from: ${href}`);
             try 
             {
-                const content = await nvdaInvetorScrape.scrapeContentFromURL(page, href);
+                const content = await InvetorScrape.scrapeContentFromURL(page, href);
                 if(title)
                 {
                     allContent.push({ url: href, title, content });
