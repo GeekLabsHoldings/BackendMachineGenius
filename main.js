@@ -20,12 +20,14 @@ const U_routes = require('./Routes/user_routes')
 const T_routes = require('./Routes/task_routes')
 const S_routes = require('./Routes/scrape_routes')
 const g_routes = require('./Routes/generate_routes')
+const c_routes = require('./Routes/checks_routes')
 
 app.use('/',A_routes)
 app.use('/',U_routes)
 app.use('/',T_routes)
 app.use('/',S_routes)
 app.use('/',g_routes)
+app.use('/',c_routes)
 
 app.listen(3000, () => {
     console.log(`Server listening on http://localhost:${process.env.port}`);

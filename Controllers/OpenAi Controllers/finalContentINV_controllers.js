@@ -8,9 +8,9 @@ const openai = new OpenAI({
 const generateTitleAndContent = async (content) => {
     try {
       console.log("------->"+content.selectedContent)
-        const prompt = `Convert the following article into a video script in a way that is entertaining but still formal. Heres the article: \n\n${content.selectedContent}`;
+        const prompt = `Convert the following article into a video script in a way that is entertaining but still formal and make it more than 1500 words count wit outline , and 15 H1 and 3 H2. Heres the article: \n\n${content.selectedContent}`;
         const completion = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
+            model: "gpt-4o",
             messages: [
                 { role: "user", content: prompt },
             ]
@@ -39,7 +39,6 @@ const generateContent = async (req, res) => {
 
         // Assume finalArticles should be based on selectedContent
         const finalArticles = [];
-
         try {         
             const { title, content } = await generateTitleAndContent(selectedContent);
             finalArticles.push({ title, content });

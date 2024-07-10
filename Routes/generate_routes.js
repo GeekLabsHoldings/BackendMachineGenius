@@ -11,10 +11,10 @@ const grammarCheck = require('../Controllers/OpenAi Controllers/finalCheck_contr
 // router.get('/generate-content', generateContent.generateContent);
 router.post('/generate-content', generateContent.generateContent);
 router.post('/STP/finalize-content', finalizeSTPContent.generateContent);
-router.post('/final-check', grammarCheck.check);
 
 //////////
 
 router.post('/INV/finalize-content', finalizeINVContent.generateContent);
+//////////
 module.exports = router;
 module.exports.msg = msg
