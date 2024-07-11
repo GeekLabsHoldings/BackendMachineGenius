@@ -3,8 +3,9 @@ require('dotenv').config();
 
 const detectText = async (content) => {
     try {
+        console.log('Sending request to GPTZero API...');
         const response = await axios.post('https://api.gptzero.me/v2/predict/text', {
-            api_key: process.env.GPTZERO_API_KEY,  // Use environment variable for API key
+            api_key: process.env.GPTZERO_API_KEY,
             "session_id": 'test session',
             text: content
         });
@@ -24,13 +25,19 @@ const detectText = async (content) => {
 const checkAi = async (req, res) => {
     try {
         const document = req.body.document;  // Ensure 'document' is the key in the request body
-        if (!document) {
-            return res.status(400).json({ success: false, error: 'No content provided' });
+        if (!document || typeof document !== 'string') {
+            return res.status(400).json({ success: false, error: 'Document must be a string' });
+        }
+
+        if (document.length < 1 || document.length > 50000) {
+            return res.status(400).json({ success: false, error: 'Document length must be between 1 and 50000 characters' });
         }
 
         const resultList = [];
+
         try {
             const result = await detectText(document);
+            console.log("result-->" , result)
             resultList.push({ result });
         } catch (error) {
             if (error.message.includes('usage threshold')) {
