@@ -8,7 +8,7 @@ const openai = new OpenAI({
 const generateTitleAndContent = async (content) => {
     try {
       console.log("------->"+content.selectedContent)
-        const prompt = `Convert the following article into a video script in a way that is entertaining but still formal and make it more than 1500 words count wit outline , and 15 H1 and 3 H2. Heres the article: \n\n${content.selectedContent}`;
+        const prompt = `Convert the following article into a video script in a way that is entertaining but still formal and make it more than 1500 words count with outline. Heres the article: \n\n${content.selectedContent}`;
         const completion = await openai.chat.completions.create({
             model: "gpt-4o",
             messages: [
