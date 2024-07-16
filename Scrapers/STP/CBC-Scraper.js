@@ -18,7 +18,7 @@ const scrapeURLs = async () => {
     try {
       await page.goto("https://www.cbc.ca/news/politics", {
         waitUntil: "domcontentloaded",
-        timeout: 60000
+        timeout: 120000
       });
   
       const URLs = await page.evaluate(() => {
@@ -60,7 +60,7 @@ const scrapeContentFromURL = async (url) => {
     try {
       await page.goto(url, {
         waitUntil: "domcontentloaded",
-        timeout: 60000
+        timeout: 120000
       });
   
       const content = await page.evaluate(() => {
