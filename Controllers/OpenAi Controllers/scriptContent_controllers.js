@@ -5,10 +5,10 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const generateTitleAndContent = async (content) => {
+const generateTitleAndContent = async (content , myPrompt) => {
     try {
-      console.log("------->"+content.selectedContent)
-        const prompt = `Convert the following article into a video script in a way that is entertaining but still formal and make it more than 1500 words count with outline. Heres the article: \n\n${content.selectedContent}`;
+      console.log("------->"+content)
+        const prompt = `${myPrompt} Here's the articles: \n\n${content}`;
         const completion = await openai.chat.completions.create({
             model: "gpt-4o",
             messages: [
@@ -29,18 +29,50 @@ const generateTitleAndContent = async (content) => {
 };
 
 const generateContent = async (req, res) => {
-    console.log("Received request data:", req.body);
-
     try {
-        const selectedContent = req.body;  // Ensure 'content' is the key in the request body
-        if (!selectedContent) {
-            return res.status(400).json({ success: false, error: 'No content provided' });
+        const {selectedContent , brandName} = req.body;
+        if (!selectedContent || !brandName) {
+            return res.status(400).json({ success: false, error: 'No content or brand name provided' });
         }
-
-        // Assume finalArticles should be based on selectedContent
+        if(brandName == "StreetPolitics")
+        {
+            var prompt = `Write a youtube video script in third person that is at least 1700-word script that reads like it was written by a human,keep in your mind that we stand with
+                        Donald Trump against Joe Biden, following these detailed guidelines:
+                        1. Introduction:
+                            - Start with a shocking and attention-grabbing piece of news.
+                            - Make the intro engaging and impactful to draw in the viewer, but avoid revealing all the details immediately.
+                            - write it in at least 200 words
+                            - Keep it starting with the shock value news directly
+                            - make it mentioning the breaking news but not giving away all the info
+                        2. Body of the Script:
+                            - make it in third person.
+                            - Include several sarcastic jokes about liberals.
+                            - Weave in conspiracy theories related to the topic being discussed.
+                            - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
+                        3. Tone:
+                            - Adopt a right-leaning perspective, especially when discussing criticism of Pierre Poilievre or the conservatives.
+                            - Defend Poilievre and make fun of Justin Trudeau and the liberals.`
+        }
+        if(brandName == "Investocracy")
+        {
+            var prompt = `Write a video script that is at least 1700-word script that reads like it was written by a human, following these detailed guidelines:
+                        1. Introduction:
+                            - Start with a shocking and attention-grabbing piece of news.
+                            - Make the intro engaging and impactful to draw in the viewer, but avoid revealing all the details immediately.
+                            - write it in at least 200 words
+                            - Keep it starting with the shock value news directly
+                            - make it mentioning the breaking news but not giving away all the info
+                        2. Body of the Script:
+                            -  make it in third person.
+                            - Use an engaging tone throughout, but don't make a lot of jokes.
+                            - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
+                        3. Tone:
+                            - Adopt a perspective that's bullish on the stock.
+                            - Encourage investors to buy the stock`
+        }
         const finalArticles = [];
         try {         
-            const { title, content } = await generateTitleAndContent(selectedContent);
+            const { title, content } = await generateTitleAndContent(selectedContent , prompt);
             finalArticles.push({ title, content });
         } catch (error) {
             console.error('Error generating title and content:', error);
