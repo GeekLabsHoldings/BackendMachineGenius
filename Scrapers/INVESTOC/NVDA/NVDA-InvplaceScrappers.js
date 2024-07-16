@@ -4,7 +4,7 @@ const scrapeURLs = async (page) => {
   try {
     await page.goto("https://investorplace.com/stock-quotes/nvda-stock-quote/", {
       waitUntil: "domcontentloaded",
-      // timeout: 120000
+      timeout: 120000
     });
     const URLs = await page.evaluate(() => {
       const ScrapeList = document.querySelectorAll(".articleswrap #ipm-related-articles #recent-stories-list-container .subcat-post-row h2 a");
@@ -32,7 +32,7 @@ const scrapeContentFromURL = async (page, url) => {
   try {
     await page.goto(url, {
       waitUntil: "domcontentloaded",
-      timeout: 40000,
+      timeout: 120000,
     });
         const content = await page.evaluate(() => {
         const ScrapeList = document.querySelectorAll(".entry-content p");      

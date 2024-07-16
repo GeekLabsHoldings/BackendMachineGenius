@@ -4,7 +4,7 @@ const scrapeURLs = async (page) => {
   try {
     await page.goto("https://www.tweaktown.com/hubs/nvidia/index.html", {
       waitUntil: "domcontentloaded",
-      // timeout: 120000
+      timeout: 120000
     });
     const URLs = await page.evaluate(() => {
       const ScrapeList = document.querySelectorAll(".category-listing .category-listing-article.clear-block a");
@@ -31,7 +31,7 @@ const scrapeContentFromURL = async (page, url) => {
   try {
     await page.goto(url, {
       waitUntil: "domcontentloaded",
-      timeout: 40000,
+      timeout: 120000,
     });
         const content = await page.evaluate(() => {
         const ScrapeList = document.querySelectorAll("#main-content p");      
