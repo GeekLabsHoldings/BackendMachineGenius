@@ -55,20 +55,21 @@ const generateContent = async (req, res) => {
         }
         if(brandName == "Investocracy")
         {
-            var prompt = `Write a video script that is at least 1700-word script that reads like it was written by a human, following these detailed guidelines:
-                        1. Introduction:
-                            - Start with a shocking and attention-grabbing piece of news.
-                            - Make the intro engaging and impactful to draw in the viewer, but avoid revealing all the details immediately.
-                            - write it in at least 200 words
-                            - Keep it starting with the shock value news directly
-                            - make it mentioning the breaking news but not giving away all the info
-                        2. Body of the Script:
-                            -  make it in third person.
-                            - Use an engaging tone throughout, but don't make a lot of jokes.
+            var prompt = `Write a stock-market-centered article that is at least 1700 words, using a tone that is human, engaging, professional, and direct. The article needs to be written from a third point of view. it needs to be divided into three parts.
+                            1. Intro:
+                            - Needs to begin with a hooking statement about attention-grabbing news. It needs to be something unique and viral in the stock market.
+                            - Don’t reveal all the details of the news in this section. Give a vague introduction of the topic with a word limit of a maximum of 200 words.
+                            2. Body:
+                            - Keep it in third person point of view.
+                            - Keep it engaging by throwing in a few sarcastic jokes about the stock market and Nvidia.
+                            - Weave in conspiracy theories related to the topic being discussed.
                             - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
-                        3. Tone:
-                            - Adopt a perspective that's bullish on the stock.
-                            - Encourage investors to buy the stock`
+                            3. Outro:
+                            - Wrap up the article with a persuasive statement to convince the reader to invest in Nvidia.
+                            - Talk about the recent and old history of Nvidia, highlighting the progress Jensen Huang has done for the company.
+                            - Highlight the current position of Nvidia’s stock.
+                            - End the article with an engaging statement to ask about the reader’s opinions about the topic.
+                            - Maintain a professional, yet conversational manner`
         }
         const finalArticles = [];
         try {         
