@@ -42,12 +42,14 @@ const CollectInvesting = async (req, res) => {
 /////////////------------///////////////////
 const CollectNvda = async (req, res) => {
     try {
-        const [FoolContent , InvestorContent , TweaktownContent] = await Promise.all([
+        const [FoolContent , InvestorContent , TweaktownContent , BenzingaContent , CnbcContent] = await Promise.all([
             collect_NVDA.scrape_Fool(),
             collect_NVDA.scrape_Investor(),
-            collect_NVDA.scrape_Tweaktown()
+            collect_NVDA.scrape_Tweaktown(),
+            collect_NVDA.scrape_Benzinga(),
+            collect_NVDA.scrape_Cnbc(),      
         ]);
-        const allContent_from_sites = [].concat(FoolContent , InvestorContent , TweaktownContent);
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent , TweaktownContent , BenzingaContent , CnbcContent);
         res.json({ success: true, allArticles: allContent_from_sites });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
@@ -56,12 +58,13 @@ const CollectNvda = async (req, res) => {
 
 const CollectApple = async (req, res) => {
     try {
-        const [FoolContent , InvestorContent] = await Promise.all([
+        const [FoolContent , InvestorContent , BenzingaContent] = await Promise.all([
             collect_APPLE.scrape_Fool(),
             collect_APPLE.scrape_Investor(),
+            collect_APPLE.scrape_Benzinga()
         ]);
         // console.log("nvdaContent-->" + nvdaContent)
-        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent , BenzingaContent);
         res.json({ success: true, allArticles: allContent_from_sites });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
