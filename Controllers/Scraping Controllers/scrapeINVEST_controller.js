@@ -7,6 +7,8 @@ const collect_AMD = require('../../Scrapers/INVESTOC/AMD/AMD-Collector')
 const collect_AMZN = require('../../Scrapers/INVESTOC/AMZN/AMZN-Collector')
 const collect_PLTR = require('../../Scrapers/INVESTOC/PLTR/PLTR-Collector')
 const collect_TSLA = require('../../Scrapers/INVESTOC/TSLA/TSLA-Collector')
+//////////////
+const collect_twitterNVDA = require('../../Scrapers/INVESTOC/Twitter/twitter-Colletor')
 
 const CollectFool = async (req, res) => {
     try {
@@ -39,7 +41,7 @@ const CollectInvesting = async (req, res) => {
     }
 };
 
-/////////////------------///////////////////
+/////////////------Stocks------///////////////////
 const CollectNvda = async (req, res) => {
     try {
         const [FoolContent , InvestorContent , TweaktownContent , BenzingaContent , CnbcContent] = await Promise.all([
@@ -47,7 +49,7 @@ const CollectNvda = async (req, res) => {
             collect_NVDA.scrape_Investor(),
             collect_NVDA.scrape_Tweaktown(),
             collect_NVDA.scrape_Benzinga(),
-            collect_NVDA.scrape_Cnbc(),      
+            collect_NVDA.scrape_Cnbc(),      ,
         ]);
         const allContent_from_sites = [].concat(FoolContent , InvestorContent , TweaktownContent , BenzingaContent , CnbcContent);
         res.json({ success: true, allArticles: allContent_from_sites });
@@ -127,6 +129,17 @@ const CollectTsla = async (req, res) => {
     }
 };
 
+const CollectTwitter = async (req, res) => {
+    try {
+      const tweetContents = await collect_twitterNVDA.collectAllAccounts();
+      res.json({ success: true, allArticles: tweetContents });
+    } catch (error) {
+      res.status(500).json({ success: false, error: error.message });
+    }
+};
+  
+
+
 module.exports = {
     CollectFool,
     CollectInvesting,
@@ -136,5 +149,7 @@ module.exports = {
     CollectAmd,
     CollectAmzn,
     CollectPltr,
-    CollectTsla
+    CollectTsla,
+    //////
+    CollectTwitter
 }
