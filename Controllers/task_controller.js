@@ -9,12 +9,6 @@ const add_new_task = async (req, res) => {
     try {
         const {user_id, description, department , progress } = req.body;
 
-        // // Check if email already exists
-        // const existing_user = await User.findOne({ where: { email } });
-        // if (existing_user) {
-        //     return res.status(400).json({ error: "Email already exists" });
-        // }
-
         const new_task = await Task.create({ user_id, description , department , progress});
         res.status(201).json({ task: new_task});
     } catch (err) {

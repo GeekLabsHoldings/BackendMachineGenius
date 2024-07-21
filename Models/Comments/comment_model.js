@@ -7,32 +7,36 @@ const sequelize = new Sequelize({
 });
 
 // Define Task model
-class Task extends Model {}
+class Comment extends Model {}
 
-Task.init({
-    user_id: {
+Comment.init({
+    admin_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
         references: {
-            model: 'Users',
+            model: 'Admins',
             key: 'id'
         }
     },
-    description: {
+    script_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'Scripts',
+            key: 'id'
+        }
+    },
+    comment_content: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    department: {
+    author: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    progress: {
-        type: DataTypes.STRING,
-        allowNull: true
-    }
 }, {
     sequelize,
-    modelName: 'Task'
+    modelName: 'Comment'
 });
 
     
@@ -41,4 +45,4 @@ sequelize.sync()
     .then(() => console.log("Database synchronized"))
     .catch(err => console.error("Database sync error!:", err));
 
-module.exports = { sequelize, Task };
+module.exports = { sequelize, Comment };
