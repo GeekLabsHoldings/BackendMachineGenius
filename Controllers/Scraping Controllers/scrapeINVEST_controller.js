@@ -103,12 +103,13 @@ const CollectAmzn = async (req, res) => {
 
 const CollectPltr = async (req, res) => {
     try {
-        const [FoolContent , InvestorContent] = await Promise.all([
+        const [FoolContent , InvestorContent , AbooContent , BenzingaContent] = await Promise.all([
             collect_PLTR.scrape_Fool(),
             collect_PLTR.scrape_Investor(),
+            collect_PLTR.scrape_Abbo(),
+            collect_PLTR.scrape_Benzinga()
         ]);
-        // console.log("nvdaContent-->" + nvdaContent)
-        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent , AbooContent , BenzingaContent);
         res.json({ success: true, allArticles: allContent_from_sites });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });

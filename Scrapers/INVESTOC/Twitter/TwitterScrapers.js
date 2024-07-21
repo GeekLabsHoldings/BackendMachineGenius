@@ -71,7 +71,7 @@ const scrapeContentFromURL = async (browser, urls) => {
 
         const cleanContent = Clean.cleanTweetContent(content);
 
-        if (content && content.includes("$NVDA"))
+        if (content && content.includes("$PLTR"))
         {
           tweetContents.push({ href, content: cleanContent });
         }

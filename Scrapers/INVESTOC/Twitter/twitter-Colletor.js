@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const Scrape = require('./TwitterScrapers');
 
 const accounts = [
-  // "https://x.com/Beth_Kindig",
+  "https://x.com/Beth_Kindig",
   // "https://x.com/Teslaconomics",
   // "https://x.com/SawyerMerritt",
   // "https://x.com/ChaseMacTrades",
@@ -24,7 +24,7 @@ const accounts = [
   // "https://x.com/DailyPalantir",
   // "https://x.com/KobeissiLetter",
   "https://x.com/nvidiaxupdates",
-  // "https://x.com/Mr_Derivatives"
+  "https://x.com/Mr_Derivatives"
 ];
 
 const TwitterCollector = async (accountUrl) => {
