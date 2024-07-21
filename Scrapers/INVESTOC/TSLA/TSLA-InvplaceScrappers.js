@@ -10,7 +10,6 @@ const scrapeURLs = async (page) => {
       const ScrapeList = document.querySelectorAll(".articleswrap #ipm-related-articles #recent-stories-list-container .subcat-post-row h2 a");
       return Array.from(ScrapeList).map(Scrape => {
         let href = Scrape.getAttribute("href");
-        // let title = Scrape.querySelector('h2').innerText;
         let title = Scrape.innerText;
         if (!href.startsWith('http')) {
           href = `https://investorplace.com/${href}`;
@@ -21,7 +20,6 @@ const scrapeURLs = async (page) => {
     });
     return URLs;
   } catch (error) {
-    // await browser.close();
     console.error('Error during URL scraping:', error);
     throw error;
   }

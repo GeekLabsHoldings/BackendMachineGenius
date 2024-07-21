@@ -41,7 +41,7 @@ const CollectInvesting = async (req, res) => {
     }
 };
 
-/////////////------Stocks------///////////////////
+/////////////------Stocks Gtom Sites------///////////////////
 const CollectNvda = async (req, res) => {
     try {
         const [FoolContent , InvestorContent , TweaktownContent , BenzingaContent , CnbcContent] = await Promise.all([
@@ -129,6 +129,7 @@ const CollectTsla = async (req, res) => {
     }
 };
 
+////////////-------Stocks From Twitter--------/////////////////
 const CollectTwitter = async (req, res) => {
     try {
       const tweetContents = await collect_twitterNVDA.collectAllAccounts();
