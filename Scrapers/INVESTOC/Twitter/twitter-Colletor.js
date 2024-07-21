@@ -21,9 +21,9 @@ const accounts = [
   // "https://x.com/TheSonOfWalkley",
   // "https://x.com/Investingcom",
   // "https://x.com/DividendTalks",
-  // "https://x.com/DailyPalantir",
+  "https://x.com/DailyPalantir",
   // "https://x.com/KobeissiLetter",
-  "https://x.com/nvidiaxupdates",
+  // "https://x.com/nvidiaxupdates",
   "https://x.com/Mr_Derivatives"
 ];
 
