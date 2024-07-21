@@ -2,14 +2,14 @@ const puppeteer = require('puppeteer');
 const Scrape = require('./TwitterScrapers');
 
 const accounts = [
-  "https://x.com/Beth_Kindig",
+  // "https://x.com/Beth_Kindig",
   // "https://x.com/Teslaconomics",
   // "https://x.com/SawyerMerritt",
   // "https://x.com/ChaseMacTrades",
   // "https://x.com/jdmarkman",
   // "https://x.com/stocktalkweekly",
   // "https://x.com/TheLongInvest",
-  // "https://x.com/amitisinvesting",
+  "https://x.com/amitisinvesting",
   // "https://x.com/StockMKTNewz",
   // "https://x.com/FunOfInvesting",
   // "https://x.com/WholeMarsBlog",
@@ -24,7 +24,7 @@ const accounts = [
   "https://x.com/DailyPalantir",
   // "https://x.com/KobeissiLetter",
   // "https://x.com/nvidiaxupdates",
-  "https://x.com/Mr_Derivatives"
+  // "https://x.com/Mr_Derivatives"
 ];
 
 const TwitterCollector = async (accountUrl) => {
@@ -38,7 +38,7 @@ const TwitterCollector = async (accountUrl) => {
      });
 
     await page.waitForSelector('input[name="text"]', { visible: true });
-    await page.type('input[name="text"]', 'Mohamed80492371');
+    await page.type('input[name="text"]', 'mohamedmamdouhgeeklab@gmail.com');
     await page.keyboard.press('Enter');
 
     await page.waitForSelector('input[name="password"]', { visible: true });

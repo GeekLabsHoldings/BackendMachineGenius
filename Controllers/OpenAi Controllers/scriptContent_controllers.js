@@ -56,21 +56,23 @@ const generateContent = async (req, res) => {
         if(brandName == "Investocracy")
         {
             var prompt = `Write a stock-market-centered article that is at least 1700 words, using a tone that is human, engaging, professional, and direct. The article needs to be written from a third point of view. Maintain a professional, direct tone. it needs to be divided into three parts.
-                            1. Intro:
-                            - Needs to begin with a hooking statement about attention-grabbing news. It needs to be something unique and viral in the stock market.
-                            - Don’t reveal all the details of the news in this section. Give a vague introduction of the topic with a word limit of a maximum of 200 words.
-                            2. Body:
-                            - Keep it in third person point of view.
-                            - Keep it engaging by throwing in one or two sarcastic jokes about the stock market and Palantir.
-                            - Weave in conspiracy theories related to the topic being discussed.
-                            - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
-                            - Back all the statements you give with proven data to elaborate more on the news.
-                            3. Outro:
-                            - Wrap up the article with a persuasive statement to convince the reader to invest in Palantir.
-                            - Talk about the current state of Palantir, and include forecasts predicting its growth.
-                            - Highlight the current position of Palantir’s stock.
-                            - End the article with an engaging statement to ask about the reader’s opinions about the topic.
-                            - Maintain a professional, yet conversational manner`
+            1. Intro:
+                - Needs to begin with a hooking statement about attention-grabbing news. It needs to be something unique and viral in the stock market.
+                - Don’t reveal all the details of the news in this section. Give a vague introduction of the topic with a word limit of a maximum of 200 words.
+                - Be straight to the point, start talking about the news right away.
+            2. Body:
+                - Keep it in third person point of view.
+                - Keep it engaging by throwing in one or two sarcastic jokes about the stock market and the stock that article talking about .
+                - Weave in conspiracy theories related to the topic being discussed.
+                - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
+                - Back all the statements you give with proven data to elaborate more on the news.
+                - Analyze the tweets provided and use them to back up the statements you include.
+            3. Outro:
+                - Wrap up the article with a persuasive statement to convince the reader to invest in the stock that article talking about .
+                - Talk about the current state of the stock that article talking about , and include forecasts predicting its growth.
+                - Highlight the current position of the stock that article talking about stock.
+                - End the article with an engaging statement to ask about the reader’s opinions about the topic.
+                - Maintain a professional, yet conversational manner.`
         }
         const finalArticles = [];
         try {         
