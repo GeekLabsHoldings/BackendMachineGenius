@@ -60,6 +60,7 @@ const generateContent = async (req, res) => {
                 - Needs to begin with a hooking statement about attention-grabbing news. It needs to be something unique and viral in the stock market.
                 - Don’t reveal all the details of the news in this section. Give a vague introduction of the topic with a word limit of a maximum of 200 words.
                 - Be straight to the point, start talking about the news right away.
+                - Make sure to mention the leading companies/figures mentioned in the article in the intro.
             2. Body:
                 - Keep it in third person point of view.
                 - Keep it engaging by throwing in one or two sarcastic jokes about the stock market and the stock that article talking about .
