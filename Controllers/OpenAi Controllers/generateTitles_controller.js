@@ -1,5 +1,6 @@
 const OpenAI = require('openai');
 require('dotenv').config();
+const { v4: uuidv4 } = require('uuid');
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -8,7 +9,7 @@ const openai = new OpenAI({
 const generateTitles = async (articles) => {
     try {
         const prompt = `
-            You are given a content. Your task is generate at least 5 suitable General titles.
+            You are given a content. Your task is generate at least 10 suitable General titles.
             
             Here are the Content:
             
@@ -16,9 +17,9 @@ const generateTitles = async (articles) => {
             
             Return the result in the following format:
             
-            1. Title: [General title here]
+            1. General Title: [General title here]
             
-            2. Title: [General title here]
+            2. General Title: [General title here]
         `;
 
         // Send the prompt to OpenAI
@@ -33,14 +34,18 @@ const generateTitles = async (articles) => {
         const result = completion.choices[0].message.content.trim();
 
         console.log("Results-->"+result)
-        const sections = result.split(/\d+\.\s* Title:\s*/).map(section => section.trim()).filter(section => section);
+        const sections = result.split(/\d+\.\s*General Title:\s*/).map(section => section.trim()).filter(section => section);
 
        
         const structuredResults = sections.map(section => {
             const lines = section.split('\n').map(line => line.trim()).filter(line => line);
             const generalTitle = lines[0].replace('General Title: ', '').trim();
+            const id = uuidv4()
 
-            return generalTitle
+            return {
+                id,
+                generalTitle,
+            };
         });
 
         // Return general titles as an array
