@@ -3,32 +3,32 @@ const Scrape = require('./TwitterScrapers');
 
 const accounts = [
   "https://x.com/Beth_Kindig",
-  "https://x.com/Teslaconomics",
-  "https://x.com/SawyerMerritt",
-  "https://x.com/ChaseMacTrades",
-  "https://x.com/jdmarkman",
-  "https://x.com/stocktalkweekly",
-  "https://x.com/TheLongInvest",
-  "https://x.com/amitisinvesting",
-  "https://x.com/StockMKTNewz",
-  "https://x.com/FunOfInvesting",
-  "https://x.com/WholeMarsBlog",
-  "https://x.com/_JoseNajarro",
-  "https://x.com/TashaARK",
-  "https://x.com/ChartWaveTrade",
-  "https://x.com/EventuallyWLTHY",
-  "https://x.com/burrytracker",
-  "https://x.com/TheSonOfWalkley",
-  "https://x.com/Investingcom",
-  "https://x.com/DividendTalks",
+  // "https://x.com/Teslaconomics",
+  // "https://x.com/SawyerMerritt",
+  // "https://x.com/ChaseMacTrades",
+  // "https://x.com/jdmarkman",
+  // "https://x.com/stocktalkweekly",
+  // "https://x.com/TheLongInvest",
+  // "https://x.com/amitisinvesting",
+  // "https://x.com/StockMKTNewz",
+  // "https://x.com/FunOfInvesting",
+  // "https://x.com/WholeMarsBlog",
+  // "https://x.com/_JoseNajarro",
+  // "https://x.com/TashaARK",
+  // "https://x.com/ChartWaveTrade",
+  // "https://x.com/EventuallyWLTHY",
+  // "https://x.com/burrytracker",
+  // "https://x.com/TheSonOfWalkley",
+  // "https://x.com/Investingcom",
+  // "https://x.com/DividendTalks",
   "https://x.com/DailyPalantir",
-  "https://x.com/KobeissiLetter",
+  // "https://x.com/KobeissiLetter",
   "https://x.com/nvidiaxupdates",
-  "https://x.com/Mr_Derivatives"
+  // "https://x.com/Mr_Derivatives"
 ];
 
 const TwitterCollector = async (accountUrl) => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
   try {
