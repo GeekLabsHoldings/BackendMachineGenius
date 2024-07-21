@@ -61,14 +61,14 @@ const generateContent = async (req, res) => {
                             - Don’t reveal all the details of the news in this section. Give a vague introduction of the topic with a word limit of a maximum of 200 words.
                             2. Body:
                             - Keep it in third person point of view.
-                            - Keep it engaging by throwing in one or two sarcastic jokes about the stock market and Nvidia.
+                            - Keep it engaging by throwing in one or two sarcastic jokes about the stock market and Palantir.
                             - Weave in conspiracy theories related to the topic being discussed.
                             - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
                             - Back all the statements you give with proven data to elaborate more on the news.
                             3. Outro:
-                            - Wrap up the article with a persuasive statement to convince the reader to invest in Nvidia.
-                            - Talk about the current state of Nvidia, and include forecasts predicting its growth.
-                            - Highlight the current position of Nvidia’s stock.
+                            - Wrap up the article with a persuasive statement to convince the reader to invest in Palantir.
+                            - Talk about the current state of Palantir, and include forecasts predicting its growth.
+                            - Highlight the current position of Palantir’s stock.
                             - End the article with an engaging statement to ask about the reader’s opinions about the topic.
                             - Maintain a professional, yet conversational manner`
         }

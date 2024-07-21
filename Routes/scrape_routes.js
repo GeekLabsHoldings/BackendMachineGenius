@@ -22,6 +22,7 @@ router.get('/collect/INV/TSLA'  , scrapeConrollersINV.CollectTsla)
 
 /////////////
 router.get('/collect/twitter/NVDA' , scrapeConrollersINV.CollectTwitter)
+router.get('/collect/twitter/PLTR' , scrapeConrollersINV.CollectTwitter)
 ////////////
 router.get('/collectFool/INV', scrapeConrollersINV.CollectFool);
 

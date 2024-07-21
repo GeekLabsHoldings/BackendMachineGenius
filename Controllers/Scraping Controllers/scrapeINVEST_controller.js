@@ -8,7 +8,7 @@ const collect_AMZN = require('../../Scrapers/INVESTOC/AMZN/AMZN-Collector')
 const collect_PLTR = require('../../Scrapers/INVESTOC/PLTR/PLTR-Collector')
 const collect_TSLA = require('../../Scrapers/INVESTOC/TSLA/TSLA-Collector')
 //////////////
-const collect_twitterNVDA = require('../../Scrapers/INVESTOC/Twitter/twitter-Colletor')
+const collect_twitterPLTR = require('../../Scrapers/INVESTOC/Twitter/twitter-Colletor')
 
 const CollectFool = async (req, res) => {
     try {
@@ -133,7 +133,7 @@ const CollectTsla = async (req, res) => {
 ////////////-------Stocks From Twitter--------/////////////////
 const CollectTwitter = async (req, res) => {
     try {
-      const tweetContents = await collect_twitterNVDA.collectAllAccounts();
+      const tweetContents = await collect_twitterPLTR.collectAllAccounts();
       res.json({ success: true, allArticles: tweetContents });
     } catch (error) {
       res.status(500).json({ success: false, error: error.message });
