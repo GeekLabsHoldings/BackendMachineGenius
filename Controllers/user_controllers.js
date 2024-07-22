@@ -1,6 +1,6 @@
 const { sequelize, User } = require("../Models/Users/user_model");
 const { sequelize_task, Task } = require("../Models/Tasks/task_model");
-const { generateToken }= require("../Middlewares/create_token");
+const { generateToken } = require("../Middlewares/create_token");
 
 
 const get_all_users = async (req, res) => {
@@ -49,6 +49,7 @@ const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ where: { email } });
+        
         const message = "Loged in succcefully"
         if (!user || !user.checkPassword(password)) {
             return res.status(401).json({ error: "Invalid email or password" });

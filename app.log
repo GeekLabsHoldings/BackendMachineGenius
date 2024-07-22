@@ -1,0 +1,609 @@
+2024-07-22T13:04:34.480Z - roles:-  HR
+2024-07-22T13:04:34.481Z - roles:-  HR
+2024-07-22T13:04:34.483Z - roles:-  Project Leader
+2024-07-22T13:04:34.484Z - roles:-  Project Leader
+2024-07-22T13:04:34.484Z - roles:-  Project Leader
+2024-07-22T13:04:35.057Z - roles:-  Project Leader
+2024-07-22T13:04:35.064Z - Server listening on http://localhost:3000
+2024-07-22T13:04:35.079Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:04:35.080Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:04:35.081Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:04:35.081Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:04:35.082Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:04:35.085Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:04:35.087Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:04:35.089Z - Database synchronized
+2024-07-22T13:04:35.090Z - Database synchronized
+2024-07-22T13:04:35.091Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:04:35.093Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:04:35.095Z - Database synchronized
+2024-07-22T13:04:35.096Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:04:35.098Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:04:35.099Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:04:35.100Z - Database synchronized
+2024-07-22T13:04:35.101Z - Database synchronized
+2024-07-22T13:09:32.835Z - roles:-  HR
+2024-07-22T13:09:32.836Z - roles:-  HR
+2024-07-22T13:09:32.838Z - roles:-  Project Leader
+2024-07-22T13:09:32.838Z - roles:-  Project Leader
+2024-07-22T13:09:32.839Z - roles:-  Project Leader
+2024-07-22T13:09:33.381Z - roles:-  Project Leader
+2024-07-22T13:09:33.386Z - Server listening on http://localhost:3000
+2024-07-22T13:09:33.396Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:09:33.397Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:09:33.398Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:09:33.399Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:09:33.400Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:09:33.403Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:09:33.404Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:09:33.405Z - Database synchronized
+2024-07-22T13:09:33.406Z - Database synchronized
+2024-07-22T13:09:33.411Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:09:33.412Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:09:33.413Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:09:33.414Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:09:33.415Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:09:33.416Z - Database synchronized
+2024-07-22T13:09:33.417Z - Database synchronized
+2024-07-22T13:09:33.430Z - Database synchronized
+2024-07-22T13:09:40.258Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:09:45.853Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin`;
+2024-07-22T13:10:53.117Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh546@gmail.com';
+2024-07-22T13:10:53.120Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`theme` = '#d205860' LIMIT 1;
+2024-07-22T13:10:57.536Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh546@gmail.com';
+2024-07-22T13:10:57.538Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`theme` = '#d2860' LIMIT 1;
+2024-07-22T13:10:57.652Z - Executing (default): INSERT INTO `Admins` (`id`,`name`,`email`,`password`,`department`,`role`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6,$7,$8);
+2024-07-22T13:10:57.667Z - Executing (default): UPDATE `Admins` SET `token`=$1,`updatedAt`=$2 WHERE `id` = $3
+2024-07-22T13:11:32.689Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:11:32.690Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed488@gmail.com';
+2024-07-22T13:11:32.692Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#596675741' LIMIT 1;
+2024-07-22T13:11:32.788Z - Executing (default): INSERT INTO `Users` (`id`,`email`,`password`,`department`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+2024-07-22T13:11:35.771Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:11:59.922Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'AhmecsdMoh@gmail.com';
+2024-07-22T13:12:06.207Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed488@gmail.com';
+2024-07-22T13:13:50.644Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed488@gmail.com';
+2024-07-22T13:14:20.290Z - roles:-  HR
+2024-07-22T13:14:20.292Z - roles:-  HR
+2024-07-22T13:14:20.294Z - roles:-  Project Leader
+2024-07-22T13:14:20.294Z - roles:-  Project Leader
+2024-07-22T13:14:20.295Z - roles:-  Project Leader
+2024-07-22T13:14:20.878Z - roles:-  Project Leader
+2024-07-22T13:14:20.883Z - Server listening on http://localhost:3000
+2024-07-22T13:14:20.894Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:14:20.896Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:14:20.897Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:14:20.898Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:14:20.899Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:14:20.903Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:14:20.905Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:14:20.906Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:14:20.907Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:14:20.908Z - Database synchronized
+2024-07-22T13:14:20.909Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:14:20.909Z - Database synchronized
+2024-07-22T13:14:20.911Z - Database synchronized
+2024-07-22T13:14:20.912Z - Database synchronized
+2024-07-22T13:14:20.918Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:14:20.919Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:14:20.921Z - Database synchronized
+2024-07-22T13:14:31.668Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:14:31.673Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed488@gmail.com';
+2024-07-22T13:14:39.531Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:14:39.532Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:14:39.535Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#596675741' LIMIT 1;
+2024-07-22T13:14:44.994Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:14:44.995Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:14:44.997Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#59667575641' LIMIT 1;
+2024-07-22T13:14:45.111Z - Executing (default): INSERT INTO `Users` (`id`,`email`,`password`,`department`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+2024-07-22T13:15:03.965Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:16:02.079Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:16:17.081Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin`;
+2024-07-22T13:18:48.897Z - roles:-  HR
+2024-07-22T13:18:48.899Z - roles:-  HR
+2024-07-22T13:18:48.900Z - roles:-  Project Leader
+2024-07-22T13:18:48.901Z - roles:-  Project Leader
+2024-07-22T13:18:48.902Z - roles:-  Project Leader
+2024-07-22T13:18:49.457Z - roles:-  Project Leader
+2024-07-22T13:18:49.462Z - Server listening on http://localhost:3000
+2024-07-22T13:18:49.478Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:18:49.479Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:18:49.480Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:18:49.481Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:18:49.481Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:18:49.484Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:18:49.486Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:18:49.487Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:18:49.488Z - Database synchronized
+2024-07-22T13:18:49.490Z - Database synchronized
+2024-07-22T13:18:49.493Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:18:49.494Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:18:49.495Z - Database synchronized
+2024-07-22T13:18:49.497Z - Database synchronized
+2024-07-22T13:18:49.498Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:18:49.499Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:18:49.500Z - Database synchronized
+2024-07-22T13:19:37.768Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh223@gmail.com';
+2024-07-22T13:19:41.894Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh223@gmail.com';
+2024-07-22T13:19:47.244Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh223@gmail.com';
+2024-07-22T13:19:55.000Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:19:55.002Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:20:11.490Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:20:11.491Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:20:11.494Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#41' LIMIT 1;
+2024-07-22T13:20:11.593Z - Executing (default): INSERT INTO `Users` (`id`,`email`,`password`,`department`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+2024-07-22T13:20:30.090Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:20:37.429Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:20:58.210Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:23:02.743Z - roles:-  HR
+2024-07-22T13:23:02.745Z - roles:-  HR
+2024-07-22T13:23:02.747Z - roles:-  Project Leader
+2024-07-22T13:23:02.748Z - roles:-  Project Leader
+2024-07-22T13:23:02.749Z - roles:-  Project Leader
+2024-07-22T13:23:03.330Z - roles:-  Project Leader
+2024-07-22T13:23:03.335Z - Server listening on http://localhost:3000
+2024-07-22T13:23:03.341Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:23:03.343Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:23:03.343Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:23:03.344Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:23:03.345Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:23:03.348Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:23:03.351Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:23:03.353Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:23:03.355Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:23:03.357Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:23:03.358Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:23:03.359Z - Database synchronized
+2024-07-22T13:23:03.359Z - Database synchronized
+2024-07-22T13:23:03.360Z - Database synchronized
+2024-07-22T13:23:03.360Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:23:03.362Z - Database synchronized
+2024-07-22T13:23:03.363Z - Database synchronized
+2024-07-22T13:23:47.204Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin`;
+2024-07-22T13:23:53.264Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin`;
+2024-07-22T13:23:58.851Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:23:58.854Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:24:06.282Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:25:22.141Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:25:54.988Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:25:54.990Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`theme` = '#d2860' LIMIT 1;
+2024-07-22T13:26:01.421Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:26:01.423Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`theme` = '#d25151860' LIMIT 1;
+2024-07-22T13:26:01.534Z - Executing (default): INSERT INTO `Admins` (`id`,`name`,`email`,`password`,`department`,`role`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6,$7,$8);
+2024-07-22T13:26:01.549Z - Executing (default): UPDATE `Admins` SET `token`=$1,`updatedAt`=$2 WHERE `id` = $3
+2024-07-22T13:26:25.627Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:26:31.909Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:26:35.807Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmedgmail.com';
+2024-07-22T13:26:43.053Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmedgmail.com';
+2024-07-22T13:26:48.203Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:28:12.196Z - roles:-  HR
+2024-07-22T13:28:12.198Z - roles:-  HR
+2024-07-22T13:28:12.199Z - roles:-  Project Leader
+2024-07-22T13:28:12.200Z - roles:-  Project Leader
+2024-07-22T13:28:12.200Z - roles:-  Project Leader
+2024-07-22T13:28:12.822Z - roles:-  Project Leader
+2024-07-22T13:28:12.828Z - Server listening on http://localhost:3000
+2024-07-22T13:28:12.835Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:28:12.836Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:28:12.837Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:28:12.838Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:28:12.839Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:28:12.845Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:28:12.851Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:28:12.855Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:28:12.856Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:28:12.857Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:28:12.858Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:28:12.859Z - Database synchronized
+2024-07-22T13:28:12.860Z - Database synchronized
+2024-07-22T13:28:12.860Z - Database synchronized
+2024-07-22T13:28:12.861Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:28:12.862Z - Database synchronized
+2024-07-22T13:28:12.863Z - Database synchronized
+2024-07-22T13:28:22.204Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:28:42.992Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:28:51.648Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:29:11.584Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:29:16.636Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:29:52.956Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:29:57.910Z - TokenExpiredError: jwt expired
+2024-07-22T13:30:26.367Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin`;
+2024-07-22T13:30:40.135Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh546@gmail.com';
+2024-07-22T13:30:46.351Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh546@gmail.com';
+2024-07-22T13:30:53.180Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:30:59.846Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:31:05.970Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:31:26.511Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed4333@gmail.com';
+2024-07-22T13:32:04.972Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721655046,"exp":1721658646}
+2024-07-22T13:32:04.974Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`id` = '1';
+2024-07-22T13:32:04.976Z - Executing (default): DELETE FROM `Users` WHERE `id` = 1
+2024-07-22T13:32:10.389Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721655046,"exp":1721658646}
+2024-07-22T13:32:10.390Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`id` = '2';
+2024-07-22T13:32:10.392Z - Executing (default): DELETE FROM `Users` WHERE `id` = 2
+2024-07-22T13:32:14.263Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721655046,"exp":1721658646}
+2024-07-22T13:32:14.268Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`id` = '3';
+2024-07-22T13:32:14.272Z - Executing (default): DELETE FROM `Users` WHERE `id` = 3
+2024-07-22T13:32:17.118Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:32:43.983Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:32:43.984Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:32:43.987Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#41' LIMIT 1;
+2024-07-22T13:32:44.086Z - Executing (default): INSERT INTO `Users` (`id`,`email`,`password`,`department`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+2024-07-22T13:32:51.658Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:32:51.659Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:32:51.661Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#41' LIMIT 1;
+2024-07-22T13:32:57.640Z - Decoded Token :- {"id":2,"email":"Mohamedmamdouh546@gmail.com","role":"HR","iat":1721653857,"exp":1721657457}
+2024-07-22T13:32:57.641Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:32:57.642Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#41555' LIMIT 1;
+2024-07-22T13:32:57.756Z - Executing (default): INSERT INTO `Users` (`id`,`email`,`password`,`department`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+2024-07-22T13:33:01.713Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:33:31.008Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:33:50.316Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:34:08.464Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:34:27.612Z - roles:-  HR
+2024-07-22T13:34:27.614Z - roles:-  HR
+2024-07-22T13:34:27.616Z - roles:-  Project Leader
+2024-07-22T13:34:27.616Z - roles:-  Project Leader
+2024-07-22T13:34:27.617Z - roles:-  Project Leader
+2024-07-22T13:34:28.441Z - roles:-  Project Leader
+2024-07-22T13:34:28.446Z - Server listening on http://localhost:3000
+2024-07-22T13:34:28.459Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:34:28.461Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:34:28.462Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:34:28.462Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:34:28.463Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:34:28.466Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:34:28.467Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:34:28.468Z - Database synchronized
+2024-07-22T13:34:28.469Z - Database synchronized
+2024-07-22T13:34:28.480Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:34:28.480Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:34:28.481Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:34:28.482Z - Database synchronized
+2024-07-22T13:34:28.483Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:34:28.484Z - Database synchronized
+2024-07-22T13:34:28.496Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:34:28.497Z - Database synchronized
+2024-07-22T13:34:30.794Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:34:32.004Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T13:34:38.229Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T13:35:39.710Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:36:47.923Z - roles:-  HR
+2024-07-22T13:36:47.924Z - roles:-  HR
+2024-07-22T13:36:47.926Z - roles:-  Project Leader
+2024-07-22T13:36:47.927Z - roles:-  Project Leader
+2024-07-22T13:36:47.928Z - roles:-  Project Leader
+2024-07-22T13:36:48.521Z - roles:-  Project Leader
+2024-07-22T13:36:48.527Z - Server listening on http://localhost:3000
+2024-07-22T13:36:48.537Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:36:48.539Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:36:48.540Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:36:48.541Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:36:48.544Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:36:48.550Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:36:48.552Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:36:48.553Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:36:48.554Z - Database synchronized
+2024-07-22T13:36:48.556Z - Database synchronized
+2024-07-22T13:36:48.564Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:36:48.565Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:36:48.566Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:36:48.567Z - Database synchronized
+2024-07-22T13:36:48.577Z - Database synchronized
+2024-07-22T13:36:48.578Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:36:48.581Z - Database synchronized
+2024-07-22T13:36:52.296Z - roles:-  HR
+2024-07-22T13:36:52.299Z - roles:-  HR
+2024-07-22T13:36:52.301Z - roles:-  Project Leader
+2024-07-22T13:36:52.302Z - roles:-  Project Leader
+2024-07-22T13:36:52.303Z - roles:-  Project Leader
+2024-07-22T13:36:53.049Z - roles:-  Project Leader
+2024-07-22T13:36:53.054Z - Server listening on http://localhost:3000
+2024-07-22T13:36:53.068Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:36:53.070Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:36:53.071Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:36:53.071Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:36:53.072Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:36:53.075Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:36:53.077Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:36:53.078Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:36:53.080Z - Database synchronized
+2024-07-22T13:36:53.082Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:36:53.083Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:36:53.084Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:36:53.085Z - Database synchronized
+2024-07-22T13:36:53.086Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:36:53.087Z - Database synchronized
+2024-07-22T13:36:53.088Z - Database synchronized
+2024-07-22T13:36:53.089Z - Database synchronized
+2024-07-22T13:36:54.483Z - roles:-  HR
+2024-07-22T13:36:54.484Z - roles:-  HR
+2024-07-22T13:36:54.486Z - roles:-  Project Leader
+2024-07-22T13:36:54.487Z - roles:-  Project Leader
+2024-07-22T13:36:54.488Z - roles:-  Project Leader
+2024-07-22T13:36:55.160Z - roles:-  Project Leader
+2024-07-22T13:36:55.164Z - Server listening on http://localhost:3000
+2024-07-22T13:36:55.178Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:36:55.179Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:36:55.180Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:36:55.180Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:36:55.181Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:36:55.184Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:36:55.185Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:36:55.187Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:36:55.190Z - Database synchronized
+2024-07-22T13:36:55.191Z - Database synchronized
+2024-07-22T13:36:55.191Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:36:55.192Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:36:55.193Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:36:55.194Z - Database synchronized
+2024-07-22T13:36:55.195Z - Database synchronized
+2024-07-22T13:36:55.195Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:36:55.196Z - Database synchronized
+2024-07-22T13:36:57.741Z - roles:-  HR
+2024-07-22T13:36:57.750Z - roles:-  HR
+2024-07-22T13:36:57.758Z - roles:-  Project Leader
+2024-07-22T13:36:57.763Z - roles:-  Project Leader
+2024-07-22T13:36:57.764Z - roles:-  Project Leader
+2024-07-22T13:36:58.355Z - roles:-  Project Leader
+2024-07-22T13:36:58.361Z - Server listening on http://localhost:3000
+2024-07-22T13:36:58.371Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:36:58.373Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:36:58.374Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:36:58.375Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:36:58.376Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:36:58.378Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:36:58.380Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:36:58.381Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:36:58.383Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:36:58.385Z - Database synchronized
+2024-07-22T13:36:58.386Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:36:58.387Z - Database synchronized
+2024-07-22T13:36:58.388Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:36:58.391Z - Database synchronized
+2024-07-22T13:36:58.395Z - Database synchronized
+2024-07-22T13:36:58.399Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:36:58.404Z - Database synchronized
+2024-07-22T13:36:59.145Z - roles:-  HR
+2024-07-22T13:36:59.147Z - roles:-  HR
+2024-07-22T13:36:59.148Z - roles:-  Project Leader
+2024-07-22T13:36:59.150Z - roles:-  Project Leader
+2024-07-22T13:36:59.151Z - roles:-  Project Leader
+2024-07-22T13:36:59.820Z - roles:-  Project Leader
+2024-07-22T13:36:59.825Z - Server listening on http://localhost:3000
+2024-07-22T13:36:59.840Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:36:59.841Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:36:59.842Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:36:59.843Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:36:59.843Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:36:59.846Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:36:59.848Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:36:59.849Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:36:59.849Z - Database synchronized
+2024-07-22T13:36:59.850Z - Database synchronized
+2024-07-22T13:36:59.856Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:36:59.857Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:36:59.858Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:36:59.859Z - Database synchronized
+2024-07-22T13:36:59.859Z - Database synchronized
+2024-07-22T13:36:59.860Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:36:59.861Z - Database synchronized
+2024-07-22T13:37:03.719Z - roles:-  HR
+2024-07-22T13:37:03.722Z - roles:-  HR
+2024-07-22T13:37:03.727Z - roles:-  Project Leader
+2024-07-22T13:37:03.727Z - roles:-  Project Leader
+2024-07-22T13:37:03.728Z - roles:-  Project Leader
+2024-07-22T13:37:04.374Z - roles:-  Project Leader
+2024-07-22T13:37:04.378Z - Server listening on http://localhost:3000
+2024-07-22T13:37:04.384Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:37:04.386Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:37:04.387Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:37:04.388Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:37:04.389Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:37:04.392Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:37:04.395Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:37:04.398Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:37:04.399Z - Database synchronized
+2024-07-22T13:37:04.399Z - Database synchronized
+2024-07-22T13:37:04.400Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:37:04.401Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:37:04.403Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:37:04.404Z - Database synchronized
+2024-07-22T13:37:04.405Z - Database synchronized
+2024-07-22T13:37:04.411Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:37:04.414Z - Database synchronized
+2024-07-22T13:37:05.814Z - roles:-  HR
+2024-07-22T13:37:05.815Z - roles:-  HR
+2024-07-22T13:37:05.817Z - roles:-  Project Leader
+2024-07-22T13:37:05.817Z - roles:-  Project Leader
+2024-07-22T13:37:05.818Z - roles:-  Project Leader
+2024-07-22T13:37:06.431Z - roles:-  Project Leader
+2024-07-22T13:37:06.437Z - Server listening on http://localhost:3000
+2024-07-22T13:37:06.448Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:37:06.449Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:37:06.450Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:37:06.450Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:37:06.451Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:37:06.454Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:37:06.456Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:37:06.458Z - Database synchronized
+2024-07-22T13:37:06.459Z - Database synchronized
+2024-07-22T13:37:06.461Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:37:06.464Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:37:06.466Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:37:06.466Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:37:06.467Z - Database synchronized
+2024-07-22T13:37:06.476Z - Database synchronized
+2024-07-22T13:37:06.477Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:37:06.480Z - Database synchronized
+2024-07-22T13:37:22.594Z - roles:-  HR
+2024-07-22T13:37:22.597Z - roles:-  HR
+2024-07-22T13:37:22.600Z - roles:-  Project Leader
+2024-07-22T13:37:22.601Z - roles:-  Project Leader
+2024-07-22T13:37:22.602Z - roles:-  Project Leader
+2024-07-22T13:37:23.208Z - roles:-  Project Leader
+2024-07-22T13:37:23.214Z - Server listening on http://localhost:3000
+2024-07-22T13:37:23.230Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:37:23.231Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:37:23.232Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:37:23.233Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:37:23.234Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:37:23.238Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:37:23.240Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:37:23.243Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:37:23.245Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:37:23.247Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:37:23.248Z - Database synchronized
+2024-07-22T13:37:23.249Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:37:23.250Z - Database synchronized
+2024-07-22T13:37:23.251Z - Database synchronized
+2024-07-22T13:37:23.252Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:37:23.254Z - Database synchronized
+2024-07-22T13:37:23.254Z - Database synchronized
+2024-07-22T13:37:27.693Z - roles:-  HR
+2024-07-22T13:37:27.695Z - roles:-  HR
+2024-07-22T13:37:27.697Z - roles:-  Project Leader
+2024-07-22T13:37:27.697Z - roles:-  Project Leader
+2024-07-22T13:37:27.698Z - roles:-  Project Leader
+2024-07-22T13:37:28.335Z - roles:-  Project Leader
+2024-07-22T13:37:28.340Z - Server listening on http://localhost:3000
+2024-07-22T13:37:28.354Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:37:28.356Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:37:28.357Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:37:28.357Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:37:28.358Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:37:28.361Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:37:28.362Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:37:28.364Z - Database synchronized
+2024-07-22T13:37:28.364Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:37:28.365Z - Database synchronized
+2024-07-22T13:37:28.372Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:37:28.373Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:37:28.374Z - Database synchronized
+2024-07-22T13:37:28.386Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:37:28.386Z - Database synchronized
+2024-07-22T13:37:28.400Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:37:28.402Z - Database synchronized
+2024-07-22T13:37:29.260Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:37:51.377Z - roles:-  HR
+2024-07-22T13:37:51.379Z - roles:-  HR
+2024-07-22T13:37:51.382Z - roles:-  Project Leader
+2024-07-22T13:37:51.383Z - roles:-  Project Leader
+2024-07-22T13:37:51.384Z - roles:-  Project Leader
+2024-07-22T13:37:51.994Z - roles:-  Project Leader
+2024-07-22T13:37:51.999Z - Server listening on http://localhost:3000
+2024-07-22T13:37:52.017Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:37:52.019Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:37:52.019Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:37:52.020Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:37:52.020Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:37:52.023Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:37:52.025Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:37:52.026Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:37:52.027Z - Database synchronized
+2024-07-22T13:37:52.028Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:37:52.028Z - Database synchronized
+2024-07-22T13:37:52.029Z - Database synchronized
+2024-07-22T13:37:52.035Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:37:52.038Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:37:52.039Z - Database synchronized
+2024-07-22T13:37:52.040Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:37:52.041Z - Database synchronized
+2024-07-22T13:37:52.233Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:37:56.542Z - roles:-  HR
+2024-07-22T13:37:56.544Z - roles:-  HR
+2024-07-22T13:37:56.545Z - roles:-  Project Leader
+2024-07-22T13:37:56.546Z - roles:-  Project Leader
+2024-07-22T13:37:56.546Z - roles:-  Project Leader
+2024-07-22T13:37:57.156Z - roles:-  Project Leader
+2024-07-22T13:37:57.164Z - Server listening on http://localhost:3000
+2024-07-22T13:37:57.179Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:37:57.181Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:37:57.182Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:37:57.183Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:37:57.184Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:37:57.187Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:37:57.208Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:37:57.229Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:37:57.253Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:37:57.255Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:37:57.256Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:37:57.256Z - Database synchronized
+2024-07-22T13:37:57.257Z - Database synchronized
+2024-07-22T13:37:57.258Z - Database synchronized
+2024-07-22T13:37:57.258Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:37:57.259Z - Database synchronized
+2024-07-22T13:37:57.259Z - Database synchronized
+2024-07-22T13:37:58.515Z - roles:-  HR
+2024-07-22T13:37:58.517Z - roles:-  HR
+2024-07-22T13:37:58.519Z - roles:-  Project Leader
+2024-07-22T13:37:58.519Z - roles:-  Project Leader
+2024-07-22T13:37:58.520Z - roles:-  Project Leader
+2024-07-22T13:37:59.102Z - roles:-  Project Leader
+2024-07-22T13:37:59.107Z - Server listening on http://localhost:3000
+2024-07-22T13:37:59.119Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:37:59.121Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:37:59.123Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:37:59.125Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:37:59.126Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:37:59.131Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:37:59.132Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:37:59.134Z - Database synchronized
+2024-07-22T13:37:59.135Z - Database synchronized
+2024-07-22T13:37:59.137Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:37:59.139Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:37:59.140Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:37:59.141Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:37:59.142Z - Database synchronized
+2024-07-22T13:37:59.152Z - Database synchronized
+2024-07-22T13:37:59.153Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:37:59.154Z - Database synchronized
+2024-07-22T13:38:05.362Z - roles:-  HR
+2024-07-22T13:38:05.364Z - roles:-  HR
+2024-07-22T13:38:05.366Z - roles:-  Project Leader
+2024-07-22T13:38:05.366Z - roles:-  Project Leader
+2024-07-22T13:38:05.367Z - roles:-  Project Leader
+2024-07-22T13:38:05.927Z - roles:-  Project Leader
+2024-07-22T13:38:05.932Z - Server listening on http://localhost:3000
+2024-07-22T13:38:05.946Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:38:05.948Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:38:05.949Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:38:05.950Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:38:05.951Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:38:05.954Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:38:05.956Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:38:05.957Z - Database synchronized
+2024-07-22T13:38:05.957Z - Database synchronized
+2024-07-22T13:38:05.964Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:38:05.965Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:38:05.965Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:38:05.967Z - Database synchronized
+2024-07-22T13:38:05.968Z - Database synchronized
+2024-07-22T13:38:05.971Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:38:05.973Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:38:05.974Z - Database synchronized
+2024-07-22T13:38:06.826Z - roles:-  HR
+2024-07-22T13:38:06.828Z - roles:-  HR
+2024-07-22T13:38:06.831Z - roles:-  Project Leader
+2024-07-22T13:38:06.832Z - roles:-  Project Leader
+2024-07-22T13:38:06.833Z - roles:-  Project Leader
+2024-07-22T13:38:07.456Z - roles:-  Project Leader
+2024-07-22T13:38:07.461Z - Server listening on http://localhost:3000
+2024-07-22T13:38:07.469Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T13:38:07.471Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T13:38:07.471Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T13:38:07.472Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T13:38:07.473Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T13:38:07.475Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T13:38:07.477Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T13:38:07.478Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T13:38:07.479Z - Database synchronized
+2024-07-22T13:38:07.480Z - Database synchronized
+2024-07-22T13:38:07.485Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T13:38:07.487Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T13:38:07.488Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T13:38:07.489Z - Database synchronized
+2024-07-22T13:38:07.489Z - Database synchronized
+2024-07-22T13:38:07.490Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T13:38:07.490Z - Database synchronized
+2024-07-22T13:38:59.200Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:46:01.351Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T13:46:10.794Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;

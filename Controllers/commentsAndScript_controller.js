@@ -1,4 +1,6 @@
 const { sequelize, Comment } = require("../Models/Comments/comment_model");
+const { User } = require("../Models/Admins/admin_model");
+const { Script } = require("../Models/Scripts/scripts_model");
 
 const get_all_comments = async (req, res) => {
     const comments = await Comment.findAll();
@@ -8,9 +10,17 @@ const get_all_comments = async (req, res) => {
 const add_new_comment = async (req, res) => {
     try {
         const {admin_id, script_id, comment_content , author } = req.body;
-
-        const new_comment = await Comment.create({ admin_id, script_id , comment_content , author});
-        res.status(201).json({ comment: new_comment});
+        const script = await Script.findByPk(script_id);
+        if(script)
+        {
+            const new_comment = await Comment.create({ admin_id, script_id , comment_content , author});
+            res.status(201).json({ comment: new_comment});
+        }
+        else
+        {
+            res.status(404).json({ message: "No script found please select other script"});
+        }
+       
     } catch (err) {
         console.error("Error registering user:", err);
         res.status(500).json({ error: "Internal Server Error" });

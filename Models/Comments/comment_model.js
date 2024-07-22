@@ -6,7 +6,7 @@ const sequelize = new Sequelize({
     storage: './DataBase/DataBases.sqlite'
 });
 
-// Define Task model
+
 class Comment extends Model {}
 
 Comment.init({
@@ -39,8 +39,7 @@ Comment.init({
     modelName: 'Comment'
 });
 
-    
-// Sync models with database
+
 sequelize.sync()
     .then(() => console.log("Database synchronized"))
     .catch(err => console.error("Database sync error!:", err));

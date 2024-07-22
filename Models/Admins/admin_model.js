@@ -1,12 +1,11 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcryptjs');
-// Create Sequelize instance
+
 const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: './DataBase/DataBases.sqlite'
 });
 
-// Define User model
 class User extends Model 
 {
     checkPassword(password)
@@ -74,7 +73,7 @@ User.init(
     }
 });
 
-// Sync models with database
+
 sequelize.sync()
     .then(() => console.log("Database synchronized"))
     .catch(err => console.error("Database sync error!:", err));

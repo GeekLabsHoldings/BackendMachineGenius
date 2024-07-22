@@ -6,7 +6,7 @@ const accessUser = require('../Middlewares/allowed_to');
 const userRoles = require('../Utilites/user_roles')
 
 // Require modules
-const Controllers = require('../Controllers/comments_controller')
+const Controllers = require('../Controllers/commentsAndScript_controller')
 
 router.get('/comments' , Controllers.get_all_comments);
 router.post('/comments' ,  verifyToken , Controllers.add_new_comment);
