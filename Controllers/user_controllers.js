@@ -23,7 +23,9 @@ const register_new_user = async (req, res) => {
         }
         const new_user = await User.create({ email, password, department , theme });
         const token = generateToken(new_user);
-        res.status(201).json({ user: new_user, token });
+        new_user.token = token;
+        await new_user.save();
+        res.status(201).json({ user: new_user});
     } catch (err) {
         console.error("Error registering user:", err);
         res.status(500).json({ error: "Internal Server Error" });

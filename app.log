@@ -607,3 +607,82 @@
 2024-07-22T13:38:59.200Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmedmohamed@gmail.com';
 2024-07-22T13:46:01.351Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmedmohamed@gmail.com';
 2024-07-22T13:46:10.794Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T17:11:02.602Z - roles:-  HR
+2024-07-22T17:11:02.603Z - roles:-  HR
+2024-07-22T17:11:02.603Z - roles:-  Project Leader
+2024-07-22T17:11:02.603Z - roles:-  Project Leader
+2024-07-22T17:11:02.603Z - roles:-  Project Leader
+2024-07-22T17:11:02.860Z - roles:-  Project Leader
+2024-07-22T17:11:02.862Z - Server listening on http://localhost:undefined
+2024-07-22T17:11:02.866Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T17:11:02.867Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T17:11:02.867Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T17:11:02.867Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T17:11:02.867Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T17:11:02.869Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T17:11:02.869Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T17:11:02.869Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T17:11:02.870Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T17:11:02.870Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T17:11:02.870Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T17:11:02.870Z - Database synchronized
+2024-07-22T17:11:02.870Z - Database synchronized
+2024-07-22T17:11:02.870Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T17:11:02.870Z - Database synchronized
+2024-07-22T17:11:02.870Z - Database synchronized
+2024-07-22T17:11:02.870Z - Database synchronized
+2024-07-22T17:11:25.481Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T17:11:39.828Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Ahmedmohamed@gmail.com';
+2024-07-22T17:12:45.382Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Mohamedmamdouh546@gmail.com';
+2024-07-22T17:14:16.082Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T17:14:30.387Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin`;
+2024-07-22T17:23:50.224Z - roles:-  HR
+2024-07-22T17:23:50.225Z - roles:-  HR
+2024-07-22T17:23:50.225Z - roles:-  Project Leader
+2024-07-22T17:23:50.225Z - roles:-  Project Leader
+2024-07-22T17:23:50.225Z - roles:-  Project Leader
+2024-07-22T17:23:50.476Z - roles:-  Project Leader
+2024-07-22T17:23:50.477Z - Server listening on http://localhost:undefined
+2024-07-22T17:23:50.483Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-22T17:23:50.483Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-22T17:23:50.483Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-22T17:23:50.483Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-22T17:23:50.483Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-22T17:23:50.486Z - Executing (default): CREATE TABLE IF NOT EXISTS `Comments` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `admin_id` INTEGER REFERENCES `Admins` (`id`), `script_id` INTEGER REFERENCES `Scripts` (`id`), `comment_content` VARCHAR(255) NOT NULL, `author` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+2024-07-22T17:23:50.486Z - Executing (default): CREATE TABLE IF NOT EXISTS `Tasks` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `user_id` INTEGER REFERENCES `Users` (`id`), `description` VARCHAR(255) NOT NULL, `department` VARCHAR(255) NOT NULL, `progress` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+2024-07-22T17:23:50.486Z - Executing (default): CREATE TABLE IF NOT EXISTS `Admins` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` VARCHAR(255) NOT NULL, `email` VARCHAR(255) NOT NULL UNIQUE, `password` VARCHAR(255) NOT NULL, `department` VARCHAR(255) NOT NULL, `role` VARCHAR(255) NOT NULL, `theme` VARCHAR(255) NOT NULL, `token` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+2024-07-22T17:23:50.487Z - Executing (default): CREATE TABLE IF NOT EXISTS `Scripts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `title` VARCHAR(255) NOT NULL, `content` TEXT NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+2024-07-22T17:23:50.487Z - Executing (default): CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `email` VARCHAR(255) NOT NULL UNIQUE, `password` VARCHAR(255) NOT NULL, `department` VARCHAR(255) NOT NULL, `token` VARCHAR(255), `theme` VARCHAR(255) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);
+2024-07-22T17:23:50.488Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-22T17:23:50.488Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-22T17:23:50.489Z - Database synchronized
+2024-07-22T17:23:50.489Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-22T17:23:50.489Z - Database synchronized
+2024-07-22T17:23:50.491Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-22T17:23:50.491Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-22T17:23:50.491Z - Database synchronized
+2024-07-22T17:23:50.493Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-22T17:23:50.493Z - Database synchronized
+2024-07-22T17:23:50.497Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-22T17:23:50.498Z - Database synchronized
+2024-07-22T17:23:59.344Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin`;
+2024-07-22T17:24:02.872Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users`;
+2024-07-22T17:24:10.171Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`email` = 'Ahmed@gmail.com';
+2024-07-22T17:24:10.172Z - Executing (default): SELECT `id`, `name`, `email`, `password`, `department`, `role`, `theme`, `token`, `createdAt`, `updatedAt` FROM `Admins` AS `Admin` WHERE `Admin`.`theme` = '#d25151860' LIMIT 1;
+2024-07-22T17:24:10.270Z - Executing (default): INSERT INTO `Admins` (`id`,`name`,`email`,`password`,`department`,`role`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6,$7,$8);
+2024-07-22T17:24:10.275Z - Executing (default): UPDATE `Admins` SET `token`=$1,`updatedAt`=$2 WHERE `id` = $3
+2024-07-22T17:24:50.505Z - TokenExpiredError: jwt expired
+2024-07-22T17:25:23.824Z - Decoded Token :- {"id":1,"email":"Ahmed@gmail.com","department":"Human re","role":"HR","iat":1721669050,"exp":1721672650}
+2024-07-22T17:25:23.827Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Farah@gmail.com';
+2024-07-22T17:25:23.830Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#41555' LIMIT 1;
+2024-07-22T17:25:23.929Z - Executing (default): INSERT INTO `Users` (`id`,`email`,`password`,`department`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+2024-07-22T17:25:23.932Z - Executing (default): UPDATE `Users` SET `token`=$1,`updatedAt`=$2 WHERE `id` = $3
+2024-07-22T17:26:12.101Z - Decoded Token :- {"id":1,"email":"Ahmed@gmail.com","department":"Human re","role":"HR","iat":1721669050,"exp":1721672650}
+2024-07-22T17:26:12.104Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Mohamed@gmail.com';
+2024-07-22T17:26:12.106Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#41555' LIMIT 1;
+2024-07-22T17:26:17.893Z - Decoded Token :- {"id":1,"email":"Ahmed@gmail.com","department":"Human re","role":"HR","iat":1721669050,"exp":1721672650}
+2024-07-22T17:26:17.894Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Mohamed@gmail.com';
+2024-07-22T17:26:17.897Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`theme` = '#4ff1555' LIMIT 1;
+2024-07-22T17:26:17.997Z - Executing (default): INSERT INTO `Users` (`id`,`email`,`password`,`department`,`theme`,`createdAt`,`updatedAt`) VALUES (NULL,$1,$2,$3,$4,$5,$6);
+2024-07-22T17:26:18.000Z - Executing (default): UPDATE `Users` SET `token`=$1,`updatedAt`=$2 WHERE `id` = $3
+2024-07-22T17:26:45.888Z - Executing (default): SELECT `id`, `email`, `password`, `department`, `token`, `theme`, `createdAt`, `updatedAt` FROM `Users` AS `Users` WHERE `Users`.`email` = 'Mohamed@gmail.com';
