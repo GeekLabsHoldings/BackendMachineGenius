@@ -2,12 +2,32 @@
 const fs = require('fs');
 const path = require('path');
 
+// Define the path to the log file
 const logFilePath = path.resolve(__dirname, 'app.log');
-const logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
+
+// Ensure the directory exists
+const logDir = path.dirname(logFilePath);
+if (!fs.existsSync(logDir)) {
+  try {
+    fs.mkdirSync(logDir, { recursive: true });
+  } catch (err) {
+    console.error('Error creating directory:', err);
+  }
+}
+
+// Create the log file and prepare the write stream
+let logStream;
+try {
+  logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
+} catch (err) {
+  console.error('Error creating log file:', err);
+}
 
 function logToFile(message) {
-  const formattedMessage = `${new Date().toISOString()} - ${message}\n`;
-  logStream.write(formattedMessage);
+  if (logStream) {
+    const formattedMessage = `${new Date().toISOString()} - ${message}\n`;
+    logStream.write(formattedMessage);
+  }
 }
 
 const originalConsoleLog = console.log;
