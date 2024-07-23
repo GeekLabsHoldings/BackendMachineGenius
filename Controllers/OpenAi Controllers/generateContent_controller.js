@@ -85,11 +85,11 @@ const generateContent = async (req, res) => {
         if (!brandName) {
             return res.status(400).json({ success: false, error: 'No brand Name provided' });
         }
-        var scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect/${brandName}`);
+        var scrapeResponse = await fetch(`http://backendmachinegenius.onrender.com/collect/${brandName}`);
 
         if(stockName && brandName)
         {
-            scrapeResponse = await fetch(`http://localhost:${process.env.PORT}/collect/${brandName}/${stockName}`);
+            scrapeResponse = await fetch(`http://backendmachinegenius.onrender.com/${brandName}/${stockName}`);
         }
         var scrapeData = await scrapeResponse.json();
         
