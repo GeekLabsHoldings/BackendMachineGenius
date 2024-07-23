@@ -17,7 +17,8 @@ const scrape_Fool = async () => {
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
                 '--enable-features=NetworkService,NetworkServiceInProcess',
-            ]
+            ],
+            timeout: 60000,
         });
         const page = await browser.newPage();
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
@@ -27,7 +28,7 @@ const scrape_Fool = async () => {
         console.error('Error browser:', error);
         throw error;
     }
-    
+
     console.log("starting fool scraping")
     try {
         console.log("starting fool scraping try")
@@ -67,7 +68,8 @@ const scrape_Investor = async () => {
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
                 '--enable-features=NetworkService,NetworkServiceInProcess',
-            ]
+            ],
+            timeout: 60000,
         });
         const page = await browser.newPage();
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
