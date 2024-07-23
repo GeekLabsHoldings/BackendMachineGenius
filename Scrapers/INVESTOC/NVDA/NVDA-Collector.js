@@ -7,31 +7,19 @@ const CnbcScrape = require('./NVDA-CnbcScrapers');
 
 
 const scrape_Fool = async () => {
-    console.log("now starting fool broweser")
-    try{
-        const browser = await puppeteer.launch({
-            // executablePath: '/home/machinegenius/api.machinegenius.io/node_modules/.puppeteer_cache/chrome/linux-126.0.6478.182/chrome-linux64/chrome',
-            headless: true,
-            args: [
-                '--disable-http2',
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--enable-features=NetworkService,NetworkServiceInProcess',
-            ],
-            timeout: 60000,
-        });
-        const page = await browser.newPage();
-        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
-    }
-    catch(error) 
-    {
-        console.error('Error browser:', error);
-        throw error;
-    }
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: [
+            '--disable-http2',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--enable-features=NetworkService,NetworkServiceInProcess',
+        ]
+    });
+    const page = await browser.newPage();
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
 
-    console.log("starting fool scraping")
     try {
-        console.log("starting fool scraping try")
         const URLs = await FoolScrape.scrapeURLs(page);
         const allContent = [];
         for (let { href, title } of URLs) {
@@ -58,31 +46,19 @@ const scrape_Fool = async () => {
 };
 
 const scrape_Investor = async () => {
-    console.log("now starting scrape_Investor broweser")
-    try{
-        const browser = await puppeteer.launch({
-            // executablePath: '/home/machinegenius/api.machinegenius.io/node_modules/.puppeteer_cache/chrome/linux-126.0.6478.182/chrome-linux64/chrome',
-            headless: true,
-            args: [
-                '--disable-http2',
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--enable-features=NetworkService,NetworkServiceInProcess',
-            ],
-            timeout: 60000,
-        });
-        const page = await browser.newPage();
-        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
-    }
-    catch(error) 
-    {
-        console.error('Error browser:', error);
-        throw error;
-    }
-    
-    console.log("starting inv scraping")
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: [
+            '--disable-http2',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--enable-features=NetworkService,NetworkServiceInProcess',
+        ]
+    });
+    const page = await browser.newPage();
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
+
     try {
-        console.log("starting inv scraping try")
         const URLs = await InvetorScrape.scrapeURLs(page);
         const allContent = [];
         for (let { href, title } of URLs) {
