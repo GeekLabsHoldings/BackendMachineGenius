@@ -28,7 +28,7 @@ const accounts = [
 ];
 
 const TwitterCollector = async (accountUrl) => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
   try {
@@ -39,6 +39,10 @@ const TwitterCollector = async (accountUrl) => {
 
     await page.waitForSelector('input[name="text"]', { visible: true });
     await page.type('input[name="text"]', 'mohamedmamdouhgeeklab@gmail.com');
+    await page.keyboard.press('Enter');
+
+    await page.waitForSelector('input[name="text"]', { visible: true });
+    await page.type('input[name="text"]', 'Mohamed80492371');
     await page.keyboard.press('Enter');
 
     await page.waitForSelector('input[name="password"]', { visible: true });
