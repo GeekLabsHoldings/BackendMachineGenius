@@ -1,4 +1,3 @@
-
 const allowedTo = (...roles) =>
 {
     console.log("roles:- " , roles)

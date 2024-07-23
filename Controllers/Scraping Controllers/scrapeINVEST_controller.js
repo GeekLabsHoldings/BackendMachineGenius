@@ -43,15 +43,14 @@ const CollectInvesting = async (req, res) => {
 
 /////////////------Stocks Gtom Sites------///////////////////
 const CollectNvda = async (req, res) => {
+    console.log("start Scraping NVDA before try")
     try {
-        const [FoolContent , InvestorContent , TweaktownContent , BenzingaContent , CnbcContent] = await Promise.all([
+        console.log("start Scraping NVDA")
+        const [FoolContent , InvestorContent ] = await Promise.all([
             collect_NVDA.scrape_Fool(),
-            collect_NVDA.scrape_Investor(),
-            collect_NVDA.scrape_Tweaktown(),
-            collect_NVDA.scrape_Benzinga(),
-            collect_NVDA.scrape_Cnbc(),      ,
+            collect_NVDA.scrape_Investor(),  
         ]);
-        const allContent_from_sites = [].concat(FoolContent , InvestorContent , TweaktownContent , BenzingaContent , CnbcContent);
+        const allContent_from_sites = [].concat(FoolContent , InvestorContent);
         res.json({ success: true, allArticles: allContent_from_sites });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });

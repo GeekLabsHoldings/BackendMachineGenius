@@ -1,7 +1,9 @@
 const puppeteer = require('puppeteer');
 
 const scrapeURLs = async (page) => {
+  console.log("Scraping URLS before try")
   try {
+    console.log("Scraping URLS")
     await page.goto("https://www.benzinga.com/quote/NVDA/news", {
       waitUntil: "domcontentloaded",
       timeout: 180000

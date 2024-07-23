@@ -7,6 +7,7 @@ const CnbcScrape = require('./NVDA-CnbcScrapers');
 
 
 const scrape_Fool = async () => {
+    console.log("now starting fool broweser")
     const browser = await puppeteer.launch({
         headless: true,
         args: [
@@ -18,8 +19,10 @@ const scrape_Fool = async () => {
     });
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
-
+    
+    console.log("starting fool scraping")
     try {
+        console.log("starting fool scraping try")
         const URLs = await FoolScrape.scrapeURLs(page);
         const allContent = [];
         for (let { href, title } of URLs) {
@@ -46,6 +49,7 @@ const scrape_Fool = async () => {
 };
 
 const scrape_Investor = async () => {
+    console.log("now starting scrape_Investor broweser")
     const browser = await puppeteer.launch({
         headless: true,
         args: [
@@ -58,7 +62,9 @@ const scrape_Investor = async () => {
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
 
+    console.log("starting inv scraping")
     try {
+        console.log("starting inv scraping try")
         const URLs = await InvetorScrape.scrapeURLs(page);
         const allContent = [];
         for (let { href, title } of URLs) {
