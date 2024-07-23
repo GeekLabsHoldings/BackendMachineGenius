@@ -10,7 +10,7 @@ const scrape_Fool = async () => {
     console.log("now starting fool broweser")
     try{
         const browser = await puppeteer.launch({
-            executablePath: '/home/machinegenius/api.machinegenius.io/node_modules/.puppeteer_cache/chrome/linux-126.0.6478.182/chrome-linux64/chrome',
+            // executablePath: '/home/machinegenius/api.machinegenius.io/node_modules/.puppeteer_cache/chrome/linux-126.0.6478.182/chrome-linux64/chrome',
             headless: true,
             args: [
                 '--disable-http2',
@@ -61,7 +61,7 @@ const scrape_Investor = async () => {
     console.log("now starting scrape_Investor broweser")
     try{
         const browser = await puppeteer.launch({
-            executablePath: '/home/machinegenius/api.machinegenius.io/node_modules/.puppeteer_cache/chrome/linux-126.0.6478.182/chrome-linux64/chrome',
+            // executablePath: '/home/machinegenius/api.machinegenius.io/node_modules/.puppeteer_cache/chrome/linux-126.0.6478.182/chrome-linux64/chrome',
             headless: true,
             args: [
                 '--disable-http2',
