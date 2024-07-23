@@ -2134,3 +2134,75 @@
 2024-07-23T07:04:19.494Z - Database synchronized
 2024-07-23T07:04:19.495Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
 2024-07-23T07:04:19.496Z - Database synchronized
+2024-07-23T07:09:48.509Z - roles:-  HR
+2024-07-23T07:09:48.510Z - roles:-  HR
+2024-07-23T07:09:48.512Z - roles:-  Project Leader
+2024-07-23T07:09:48.512Z - roles:-  Project Leader
+2024-07-23T07:09:48.513Z - roles:-  Project Leader
+2024-07-23T07:09:49.055Z - roles:-  Project Leader
+2024-07-23T07:09:49.060Z - Server listening on http://localhost:3000
+2024-07-23T07:09:49.070Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-23T07:09:49.072Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-23T07:09:49.072Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-23T07:09:49.073Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-23T07:09:49.074Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-23T07:09:49.077Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-23T07:09:49.079Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-23T07:09:49.080Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-23T07:09:49.081Z - Database synchronized
+2024-07-23T07:09:49.082Z - Database synchronized
+2024-07-23T07:09:49.093Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-23T07:09:49.094Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-23T07:09:49.094Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-23T07:09:49.095Z - Database synchronized
+2024-07-23T07:09:49.108Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-23T07:09:49.109Z - Database synchronized
+2024-07-23T07:09:49.110Z - Database synchronized
+2024-07-23T07:09:59.862Z - roles:-  HR
+2024-07-23T07:09:59.864Z - roles:-  HR
+2024-07-23T07:09:59.866Z - roles:-  Project Leader
+2024-07-23T07:09:59.866Z - roles:-  Project Leader
+2024-07-23T07:09:59.867Z - roles:-  Project Leader
+2024-07-23T07:10:00.409Z - roles:-  Project Leader
+2024-07-23T07:10:00.413Z - Server listening on http://localhost:3000
+2024-07-23T07:10:00.425Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-23T07:10:00.426Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-23T07:10:00.427Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-23T07:10:00.427Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-23T07:10:00.428Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-23T07:10:00.431Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-23T07:10:00.433Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-23T07:10:00.434Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-23T07:10:00.436Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-23T07:10:00.438Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-23T07:10:00.439Z - Database synchronized
+2024-07-23T07:10:00.440Z - Database synchronized
+2024-07-23T07:10:00.440Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-23T07:10:00.441Z - Database synchronized
+2024-07-23T07:10:00.441Z - Database synchronized
+2024-07-23T07:10:00.447Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-23T07:10:00.448Z - Database synchronized
+2024-07-23T07:10:22.609Z - roles:-  HR
+2024-07-23T07:10:22.611Z - roles:-  HR
+2024-07-23T07:10:22.612Z - roles:-  Project Leader
+2024-07-23T07:10:22.613Z - roles:-  Project Leader
+2024-07-23T07:10:22.613Z - roles:-  Project Leader
+2024-07-23T07:10:23.138Z - roles:-  Project Leader
+2024-07-23T07:10:23.143Z - Server listening on http://localhost:3000
+2024-07-23T07:10:23.155Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Admins';
+2024-07-23T07:10:23.156Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Users';
+2024-07-23T07:10:23.157Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Tasks';
+2024-07-23T07:10:23.157Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Scripts';
+2024-07-23T07:10:23.158Z - Executing (default): SELECT name FROM sqlite_master WHERE type='table' AND name='Comments';
+2024-07-23T07:10:23.161Z - Executing (default): PRAGMA INDEX_LIST(`Admins`)
+2024-07-23T07:10:23.162Z - Executing (default): PRAGMA INDEX_LIST(`Scripts`)
+2024-07-23T07:10:23.164Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Admins_1`)
+2024-07-23T07:10:23.165Z - Executing (default): PRAGMA INDEX_LIST(`Comments`)
+2024-07-23T07:10:23.166Z - Executing (default): PRAGMA INDEX_LIST(`Tasks`)
+2024-07-23T07:10:23.167Z - Database synchronized
+2024-07-23T07:10:23.167Z - Database synchronized
+2024-07-23T07:10:23.179Z - Database synchronized
+2024-07-23T07:10:23.180Z - Executing (default): PRAGMA INDEX_LIST(`Users`)
+2024-07-23T07:10:23.181Z - Executing (default): PRAGMA INDEX_INFO(`sqlite_autoindex_Users_1`)
+2024-07-23T07:10:23.181Z - Database synchronized
+2024-07-23T07:10:23.195Z - Database synchronized
