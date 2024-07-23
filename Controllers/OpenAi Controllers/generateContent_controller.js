@@ -1,5 +1,6 @@
 const OpenAI = require('openai');
 require('dotenv').config();
+const axios = require('axios');
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -82,17 +83,21 @@ const generateContent = async (req, res) => {
     try {
         const brandName = req.body.brandName;
         const stockName = req.body.stockName;
+
         if (!brandName) {
             return res.status(400).json({ success: false, error: 'No brand Name provided' });
         }
-        var scrapeResponse = await fetch(`http://backendmachinegenius.onrender.com/collect/${brandName}`);
 
-        if(stockName && brandName)
-        {
-            scrapeResponse = await fetch(`http://backendmachinegenius.onrender.com/${brandName}/${stockName}`);
+        let scrapeResponse;
+
+        if (stockName) {
+            scrapeResponse = await axios.get(`http://localhost:${process.env.PORT}/collect/${brandName}/${stockName}`);
+        } else {
+            scrapeResponse = await axios.get(`http://localhost:${process.env.PORT}/collect/${brandName}`);
         }
-        var scrapeData = await scrapeResponse.json();
-        
+
+        const scrapeData = scrapeResponse.data;
+
         if (!scrapeData.success) {
             return res.status(500).json({ success: false, error: 'Error fetching scraped content' });
         }
@@ -102,9 +107,10 @@ const generateContent = async (req, res) => {
 
         res.json({ success: true, organizedArticles });
     } catch (error) {
+        console.error("Error in generateContent:", error);
         res.status(500).json({ success: false, error: error.message });
     }
-}
+};
 
 module.exports = {
     generateContent
