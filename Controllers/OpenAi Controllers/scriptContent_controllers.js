@@ -49,43 +49,44 @@ const generateContent = async (req, res) =>
         let prompt = '';
         if (brandName == "StreetPolitics") 
         {
-            prompt = `Write a youtube video script in third person that is at least 1700-word script that reads like it was written by a human,keep in your mind that we stand with
-                    Donald Trump against Joe Biden, following these detailed guidelines:
-                    1. Introduction:
-                        - Start with a shocking and attention-grabbing piece of news.
-                        - Make the intro engaging and impactful to draw in the viewer, but avoid revealing all the details immediately.
-                        - write it in at least 200 words
-                        - Keep it starting with the shock value news directly
-                        - make it mentioning the breaking news but not giving away all the info
-                    2. Body of the Script:
-                        - make it in third person.
-                        - Include several sarcastic jokes about liberals.
+            prompt = `Write a Canada-based political Article in the third person point of view. It needs to be at least 1700 words that are as human as possible. We have a right-leaning perspective, especially when discussing criticism of Pierre Poilievre or the Liberals. Keep the tone professional yet engaging. We stand with Pierre Poilievre and are against Justin Trudeau. The article will need to be divided into three sections.
+                        1. Intro:-
+                        - Needs to begin with a hooking statement about attention-grabbing news. It needs to be something unique and viral.
+                        - Don’t reveal all the details of the news in this section. Give an introduction of the topic, but don’t be too vague.
+                        - Keep the word limit for this section to 200 words.
+                        2. Body:
+                        - Keep it in third person point of view.
+                        - Keep it engaging by throwing in a couple of sarcastic jokes about the Liberals and Justin Trudeau.
                         - Weave in conspiracy theories related to the topic being discussed.
                         - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
-                    3. Tone:
-                        - Adopt a right-leaning perspective, especially when discussing criticism of Pierre Poilievre or the conservatives.
-                        - Defend Poilievre and make fun of Justin Trudeau and the liberals.`;
+                        - Pick the common topics between the chosen articles to flow from one point to another seamlessly.
+                        - Use simpler, commonly used terms.
+                        3. Outro:
+                        - Make it conversational, yet professional.
+                        - Make the conclusion wrap up all the main ideas from the article and give it a conservative spin
+                        - Don't sound repetitive.
+                        - Ask about the reader's opinions in an engaging manner, wrapping up the video.`;
         } else if (brandName == "Investocracy") 
         {
-            prompt = `Write a stock-market-centered article that is at least 1700 words, using a tone that is human, engaging, professional, and direct. The article needs to be written from a third point of view. Maintain a professional, direct tone. it needs to be divided into three parts.
-                    1. Intro:
+            prompt = `Write a stock-market-centered article that is at least 2500 words, using a tone that is human, engaging, professional, and direct. The article needs to be written from a third point of view. Maintain a professional, direct tone. it needs to be divided into three parts.
+                        1. Intro:
                         - Needs to begin with a hooking statement about attention-grabbing news. It needs to be something unique and viral in the stock market.
                         - Don’t reveal all the details of the news in this section. Give a vague introduction of the topic with a word limit of a maximum of 200 words.
                         - Be straight to the point, start talking about the news right away.
                         - Make sure to mention the leading companies/figures mentioned in the article in the intro.
-                    2. Body:
+                        2. Body:
                         - Keep it in third person point of view.
-                        - Keep it engaging by throwing in one or two sarcastic jokes about the stock market and the stock that article talking about .
-                        - Weave in conspiracy theories related to the topic being discussed.
+                        - Keep it engaging by throwing in one or two sarcastic jokes about the stock market and the stock that we talk about.
                         - Maintain a conversational style, as if entertaining another human with the latest news while keeping a serious undertone.
                         - Back all the statements you give with proven data to elaborate more on the news.
                         - Analyze the tweets provided and use them to back up the statements you include.
-                    3. Outro:
-                        - Wrap up the article with a persuasive statement to convince the reader to invest in the stock that article talking about .
-                        - Talk about the current state of the stock that article talking about , and include forecasts predicting its growth.
-                        - Highlight the current position of the stock that article talking about stock.
+                        - Pick the common topics between the chosen articles to flow from one point to another seamlessly.
+                        3. Outro:
+                        - Wrap up the article with a persuasive statement to convince the reader to invest in the stock that we talk about.
+                        - Talk about the current state of the stock that we talk about, and include forecasts predicting its growth.
+                        - Highlight the current position of the stock that we talk about.
                         - End the article with an engaging statement to ask about the reader’s opinions about the topic.
-                        - Maintain a professional, yet conversational manner.`;
+                        - Maintain a professional, yet conversational manner`;
         }
         const finalArticles = [];
         try {         
