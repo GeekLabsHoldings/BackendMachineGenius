@@ -80,16 +80,18 @@ const scrapeGlobalnews = async () => {
             try 
             {
                 const content = await globalnewsScraper.scrapeContentFromURL(page, href);
-                if(title)
+                if(title && content)
                 {
-                    allContent.push({ url: href, title, content });
+                        console.log({url:href})
+                        allContent.push({ url: href, title, content });
+                        var filteredAllContent = allContent.filter((url) => url != null);
                 }
             } catch (error) {
                 console.error(`Error scraping content from ${href}:`, error);
-                allContent.push({ url: href, title, content: 'Error fetching content' });
+                filteredAllContent.push({ url: href, title, content: 'Error fetching content' });
             }
         }
-        return allContent;
+        return filteredAllContent;
     } catch (error) {
         console.error('Error scraping all content:', error);
         throw error;

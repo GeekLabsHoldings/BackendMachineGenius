@@ -57,8 +57,12 @@ const thestarScrapeAll = async (req, res) => {
 
 const Collect = async (req, res) => {
     try {
-        const [glopalnewsContant] = await Promise.all([collectScrapers.scrapeGlobalnews()]);
-        const allContent_from_sites = [...glopalnewsContant];
+        const [cbcContent , thestarContent ,  glopalnewsContant] = await Promise.all([
+          collectScrapers.scrapeCBC(),
+          collectScrapers.scrapeTheStar(),
+          collectScrapers.scrapeGlobalnews()
+        ]);
+        const allContent_from_sites = [...cbcContent,...thestarContent,...glopalnewsContant];
         res.json({ success: true, allArticles: allContent_from_sites });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
