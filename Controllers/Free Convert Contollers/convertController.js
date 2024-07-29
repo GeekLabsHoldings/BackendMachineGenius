@@ -4,11 +4,11 @@ const dotenv = require('dotenv');
 const FormData = require('form-data');
 const fs = require('fs');
 const path = require('path');
-const transcribtController = require('../OpenAi Controllers/transcriptContent_controller')
+const transcribtController = require('../OpenAi Controllers/transcriptContent_controller');
 dotenv.config();
 
 const storage = multer.memoryStorage();
-const upload = multer({ storage: storage }).single('file');  // Ensure the field name is 'file' lazem file m4 ay 7aga tanya
+const upload = multer({ storage: storage }).single('file');  // Ensure the field name is 'file'
 
 const convertor = async (req, res) => {
     const videoDuration = parseInt(req.body.duration);  // Get video duration from user input
@@ -22,7 +22,7 @@ const convertor = async (req, res) => {
       return res.status(400).send('No file uploaded.');
     }
   
-    const segmentDuration = 10; // Segment duration in seconds lazem belswanay 
+    const segmentDuration = 10; // Segment duration in seconds 
     const totalSegments = Math.ceil(videoDuration / segmentDuration);
   
     const promises = [];
@@ -126,7 +126,11 @@ async function processFile(inputBody, file, index, cutStart, cutEnd, transcripti
   
       if (jobStatus === 'completed' && downloadUrl) {
         const fileResponse = await axios.get(downloadUrl, { responseType: 'stream' });
-        const filePath = path.join(__dirname, 'converted', `converted_part${index}.mp3`);
+        const filePath = path.join('/tmp', `converted_part${index}.mp3`);
+
+        // Ensure the directory exists
+        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+
         const writer = fs.createWriteStream(filePath);
         fileResponse.data.pipe(writer);
   
@@ -146,7 +150,7 @@ async function processFile(inputBody, file, index, cutStart, cutEnd, transcripti
       }
   
     } catch (error) {
-      console.error('Error during file conversion:', error.response ? error.response.data : error.message);
+      console.error('Error during file conversion:', error.response ? error.response.data : error.message, error.stack);
       throw new Error('An error occurred during file conversion.');
     }
 }
