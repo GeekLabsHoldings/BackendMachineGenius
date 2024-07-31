@@ -6,8 +6,7 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const recapContent = async (myContent) => {
     try {
-        const prompt = `write a recap of this ${myContent} 
-              write it in detail, giving me a scence by scene explation of this part `;
+        const prompt = `rewrite this content in good way:-${myContent} `;
         const completion = await openai.chat.completions.create({
             model: "gpt-4o",
             messages: [
@@ -16,10 +15,10 @@ const recapContent = async (myContent) => {
         });
   
         const result = completion.choices[0].message.content.trim();
-        const [title, ...newContent] = result.split('\n');
+        // const [title, ...newContent] = result.split('\n');
         return {
-            title: title.replace("Title: ", "").trim(),
-            content: newContent.join(' ').trim()
+            // title: title.replace("Title: ", "").trim(),
+            content: result
         };
     } catch (error) {
         console.error("Error generating recap:", error);

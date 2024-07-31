@@ -1,4 +1,3 @@
-const multer = require('multer');
 const axios = require('axios');
 const dotenv = require('dotenv');
 const FormData = require('form-data');
@@ -47,7 +46,7 @@ const prosessOnFile = async (inputBody, file, index, cutStart, cutEnd, transcrip
       let jobStatus = 'processing';
       let downloadUrl;
       while (jobStatus === 'processing') {
-        await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 5 seconds
+        await new Promise(resolve => setTimeout(resolve));
         const statusResponse = await axios.get(`https://api.freeconvert.com/v1/process/jobs/${jobId}`, { headers });
         jobStatus = statusResponse.data.status;
         console.log(`Job status: ${jobStatus}`);

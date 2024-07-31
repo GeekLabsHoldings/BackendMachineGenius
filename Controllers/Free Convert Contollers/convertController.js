@@ -1,4 +1,3 @@
-const multer = require('multer');
 const dotenv = require('dotenv');
 const processFile = require('../../uploadToconvert/uploadFile')
 dotenv.config();
