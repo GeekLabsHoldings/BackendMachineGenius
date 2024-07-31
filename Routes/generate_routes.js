@@ -10,7 +10,6 @@ const generateContent = require('../Controllers/OpenAi Controllers/generateConte
 const finalizeScriptContent = require('../Controllers/OpenAi Controllers/scriptContent_controllers')
 const finalizeArticleContent = require('../Controllers/OpenAi Controllers/articleContent_controllers')
 const generateTitles = require('../Controllers/OpenAi Controllers/generateTitles_controller')
-const recapMovie = require('../Controllers/OpenAi Controllers/recapMovie_controller')
 const transcriptAudio = require('../Controllers/Free Convert Contollers/convertController')
 
 router.post('/generate-content', generateContent.generateContent);
@@ -21,7 +20,6 @@ router.post('/article/finalize-content', finalizeArticleContent.generateContent)
 //////////
 router.post('/generate-titles', generateTitles.generateContent);
 //////////
-router.post('/recap-movies', recapMovie.generateContent);
 router.post('/transcript-audio', upload , transcriptAudio.convertor);
 
 module.exports = router;
