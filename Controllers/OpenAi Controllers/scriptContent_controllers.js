@@ -1,4 +1,3 @@
-const { sequelize, Script } = require("../../Models/Scripts/scripts_model");
 const OpenAI = require("openai");
 require("dotenv").config();
 
@@ -26,15 +25,15 @@ const generateTitleAndContent = async (content, myPrompt) => {
   }
 };
 
-const add_new_script = async (title, content) => {
-  try {
-    const new_script = await Script.create({ title, content });
-    return new_script;
-  } catch (err) {
-    console.error("Error adding new script:", err);
-    throw err;
-  }
-};
+// const add_new_script = async (title, content) => {
+//   try {
+//     const new_script = await Script.create({ title, content });
+//     return new_script;
+//   } catch (err) {
+//     console.error("Error adding new script:", err);
+//     throw err;
+//   }
+// };
 
 const generateContent = async (req, res) => {
   try {

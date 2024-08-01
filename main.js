@@ -1,8 +1,20 @@
 const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
+require('dotenv').config()
+const path = require("path")
+
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URL).then(() => {
+    console.log("Connected to MongoDB")    
+})
+
+
+// enable static path
+app.use('/uploads' , express.static(path.join(__dirname, "Uploads")))
 
 require('dotenv').config()
-const app = express();
+
 
 // Middleware for parsing request body
 app.use(bodyParser.urlencoded({ extended: false }));
