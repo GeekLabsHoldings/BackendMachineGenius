@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
 
 
 // enable static path
-app.use('/uploads' , express.static(path.join(__dirname, "/usr/src/app/uploads/movie.mp4")))
+app.use('/uploads' , express.static(path.join(__dirname, "uploads")))
 
 require('dotenv').config()
 
