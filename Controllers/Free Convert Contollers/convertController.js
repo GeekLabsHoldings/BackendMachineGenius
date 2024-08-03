@@ -87,6 +87,7 @@ const convertor = async (req, res) => {
       .then(() => {
         res.status(200).send({
           message: 'Files uploaded, converted, and saved successfully',
+          movie_url: 'https://backendmachinegenius.onrender.com/uploads/movie.mp4',
           transcriptionResults,
         });
       })

@@ -98,7 +98,7 @@ const prosessOnFile = async (inputBody, file, index, cutStart, cutEnd, transcrip
         if (error.response && error.response.data && error.response.data.errors) {
             const errorMessage = error.response.data.errors[0].message;
             if (errorMessage.includes('Insufficient CPU minutes')) {
-                throw new Error('Job creation failed due to insufficient CPU minutes. Please check your FreeConvert account and upgrade your plan if necessary.');
+                throw new Error('Job creation failed due to insufficient CPU minutes. Please check your FreeConvert account check money and your qute.');
             }
         }
         throw new Error('An error occurred during file conversion.');

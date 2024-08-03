@@ -49,7 +49,7 @@ router.post('/article/finalize-content', finalizeArticleContent.generateContent)
 //////////
 router.post('/generate-titles', generateTitles.generateContent);
 //////////
-router.post('/transcript-audio', upload.single("movie") , transcriptAudio.convertor);
+router.post('/transcript-audio', upload.single("file") , transcriptAudio.convertor);
 
 module.exports = router;
 module.exports.msg = msg
