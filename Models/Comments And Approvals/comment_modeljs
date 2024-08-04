@@ -1,0 +1,28 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const approvalTypes = require("../../Utilites/approval_types")
+const commentSchema = new Schema({
+  content_id: 
+  {
+    type: String,
+    required: true 
+  },
+  comment_content: 
+  {
+    type: String,
+    required: true,
+  },
+  author: 
+  {
+    type: String,
+  },
+  approvals:
+  {
+    type: String,
+    required: true ,
+    enum: [approvalTypes.PENDING , approvalTypes.REJECTED , approvalTypes.ACCEPTED],
+    default: approvalTypes.PENDING,
+  },
+});
+
+module.exports = mongoose.model('Comment', commentSchema);

@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const contentTypes = require("../../Utilites/content_types")
+const approvalTypes = require("../../Utilites/approval_types")
 // const validator  = require('validator');
 // Create User schema
+
 const contentSchema = new Schema({
   content_title: 
   {
@@ -18,19 +20,40 @@ const contentSchema = new Schema({
   brand: 
   {
     type: String,
-    required: false,
+    required: true,
   },
   content_type: 
   {
     type: String, // ["SCRIPT", "ARTICLE"]
     enum: [contentTypes.ARTICLE , contentTypes.SCRIPT],
-    default: contentTypes.SCRIPT
+    default: contentTypes.SCRIPT,
+  },
+  views: 
+  {
+    type: Number, 
+    required: false
+  },
+  date: 
+  {
+    type: Date, 
+    required: false
+  },
+  approvals:
+  {
+    type: String,
+    required: true ,
+    enum: [approvalTypes.PENDING , approvalTypes.REJECTED , approvalTypes.ACCEPTED],
+    default: approvalTypes.PENDING,
   },
   movie:
   {
     required: false,
     type: String,
-    // default: "uploads/test.mp4"
+  },
+  SEO:
+  {
+    required: false,
+    type: Object,
   }
 });
 

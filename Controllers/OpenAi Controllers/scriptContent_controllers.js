@@ -1,6 +1,6 @@
 const OpenAI = require("openai");
 require("dotenv").config();
-
+const content_dataBase = require("../../Models/Content/content_model");
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -24,16 +24,6 @@ const generateTitleAndContent = async (content, myPrompt) => {
     throw error;
   }
 };
-
-// const add_new_script = async (title, content) => {
-//   try {
-//     const new_script = await Script.create({ title, content });
-//     return new_script;
-//   } catch (err) {
-//     console.error("Error adding new script:", err);
-//     throw err;
-//   }
-// };
 
 const generateContent = async (req, res) => {
   try {
@@ -94,7 +84,7 @@ const generateContent = async (req, res) => {
         prompt
       );
       finalArticles.push({ title, content });
-      const new_script = await add_new_script(title, content);
+      // const new_script = await add_new_script(title, content);
     } catch (error) {
       console.error("Error generating title and content:", error);
       finalArticles.push({
@@ -109,6 +99,8 @@ const generateContent = async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 };
+
+
 
 module.exports = {
   generateContent,
