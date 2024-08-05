@@ -45,7 +45,7 @@ const prosessOnFile = async (inputBody, file, index, cutStart, cutEnd, transcrip
         let jobStatus = 'processing';
         let downloadUrl;
         while (jobStatus === 'processing') {
-            await new Promise(resolve => setTimeout(resolve)); // Wait no
+            await new Promise(resolve => setTimeout(resolve , 10000 )); // Wait 10 seconds to get trimmed
             const statusResponse = await axios.get(`https://api.freeconvert.com/v1/process/jobs/${jobId}`, { headers });
             jobStatus = statusResponse.data.status;
             console.log(`Job status: ${jobStatus}`);
