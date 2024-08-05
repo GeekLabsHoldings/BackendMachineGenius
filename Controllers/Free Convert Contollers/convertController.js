@@ -35,7 +35,7 @@ const convertor = async (req, res) => {
 
     await new_movie.save();
 
-    const segmentDuration = Math.ceil(videoDuration / 2);
+    const segmentDuration = Math.ceil(videoDuration / 5);
     const totalSegments = Math.ceil(videoDuration / segmentDuration);
 
     const promises = [];
