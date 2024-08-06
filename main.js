@@ -52,6 +52,9 @@ app.use('/',c_routes)
 app.use('/',comment_routes)
 
 
-app.listen(3000, () => {
-    console.log(`Server listening on http://localhost:${process.env.port}`);
-});
+const server = app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server listening on port ${process.env.PORT || 3000}`);
+  });
+  
+server.timeout = 20 * 60 * 1000; // 20 minutes
+  
