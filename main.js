@@ -23,15 +23,7 @@ app.use(bodyParser.json());
 
 //  enable CORS for all origins
 const cors = require('cors')
-const corsOptions = {
-    origin: 'https://machinegenius.io', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-};
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Preflight requests handling
+app.use(cors());
 
 
 // import routes file
@@ -51,10 +43,6 @@ app.use('/',g_routes)
 app.use('/',c_routes)
 app.use('/',comment_routes)
 
-
-const server = app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server listening on port ${process.env.PORT || 3000}`);
-  });
-  
-server.timeout = 20 * 60 * 1000; // 20 minutes
-  
+app.listen(3000, () => {
+    console.log(`Server listening on http://localhost:${process.env.port}`);
+});
