@@ -15,6 +15,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN mkdir -p /usr/src/app/DataBase
+
+EXPOSE 3000 
 
 CMD [ "node", "main.js" ]
