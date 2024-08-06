@@ -20,11 +20,9 @@ require('dotenv').config()
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Middleware for parsing request body
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
-// Enable CORS for specific origin
+//  enable CORS for all origins
+const cors = require('cors')
 const corsOptions = {
     origin: 'https://backendmachinegenius.onrender.com/transcript-audio', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
