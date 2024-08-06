@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 //  enable CORS for all origins
 const cors = require('cors')
 const corsOptions = {
-    origin: 'https://backendmachinegenius.onrender.com/transcript-audio', 
+    origin: 'https://machinegenius.io', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
@@ -51,9 +51,6 @@ app.use('/',g_routes)
 app.use('/',c_routes)
 app.use('/',comment_routes)
 
-app.get('/health', (req, res) => {
-    res.status(200).send('OK');
-});
 
 app.listen(3000, () => {
     console.log(`Server listening on http://localhost:${process.env.port}`);
