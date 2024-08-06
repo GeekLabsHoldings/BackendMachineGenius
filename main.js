@@ -23,7 +23,16 @@ app.use(bodyParser.json());
 
 //  enable CORS for all origins
 const cors = require('cors')
-app.use(cors());
+const corsOptions = {
+    origin: 'https://machinegenius.io', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 
 
 // import routes file
@@ -46,5 +55,5 @@ app.use('/',comment_routes)
 app.use('/',content_routes)
 
 app.listen(3000, () => {
-    console.log(`Server listening on http://localhost:${process.env.port}`);
+    console.log(`Server listening on http://localhost:${process.env.PORT}`);
 });
