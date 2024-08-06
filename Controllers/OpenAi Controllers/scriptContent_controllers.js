@@ -1,9 +1,30 @@
 const OpenAI = require("openai");
 require("dotenv").config();
-const content_dataBase = require("../../Models/Content/content_model");
+const temp_dataBase = require("../../Models/Temp/temp_model");
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+const add_to_temp = async (title, content) => {
+  const new_temp = new temp_dataBase({
+      title,
+      content,
+  })   
+
+  await new_temp.save()
+  .then(()=>{
+      res.status(201).json(new_temp)
+  })
+  .catch((error)=> {
+      console.log(`${error}`)
+      res.status(400).json({ message : 'There are '+ error})
+  })    
+};
+
+const get_all_temp = async (req , res) => {
+  const temp = await temp_dataBase.find({},{"__v" : false});
+  res.json(temp);
+}
 
 const generateTitleAndContent = async (content, myPrompt) => {
   try {
@@ -74,7 +95,7 @@ const generateContent = async (req, res) => {
                         - End the article with an engaging statement to ask about the reader’s opinions about the topic.
                         - Maintain a professional, yet conversational manner`;
     } else if (brandName == "Moviemyth") {
-      prompt = `write a movie recap of from this contebt
+      prompt = `write a movie recap of from this content
                 write it in detail, giving me a scence by scene explation of the movie`;
     }
     const finalArticles = [];
@@ -84,7 +105,7 @@ const generateContent = async (req, res) => {
         prompt
       );
       finalArticles.push({ title, content });
-      // const new_script = await add_new_script(title, content);
+      const temp_script = await add_to_temp(title, content);
     } catch (error) {
       console.error("Error generating title and content:", error);
       finalArticles.push({
@@ -100,8 +121,7 @@ const generateContent = async (req, res) => {
   }
 };
 
-
-
 module.exports = {
   generateContent,
+  get_all_temp
 };

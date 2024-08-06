@@ -2,6 +2,9 @@ const multer = require('multer');
 const express = require('express')
 const router = express.Router()
 const msg = "This module to handle the request and response of AI generation model"
+const { verifyToken } = require("../Middlewares/verify_token");
+const accessUser = require('../Middlewares/allowed_to');
+const userRoles = require('../Utilites/user_roles')
 
 // using multer 
 const storage = multer.diskStorage({
@@ -46,6 +49,7 @@ router.post('/generate-content', generateContent.generateContent);
 //////////
 router.post('/script/finalize-content', finalizeScriptContent.generateContent);
 router.post('/article/finalize-content', finalizeArticleContent.generateContent);
+router.get('/get-temp', finalizeScriptContent.get_all_temp);
 //////////
 router.post('/generate-titles', generateTitles.generateContent);
 //////////
