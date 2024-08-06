@@ -20,10 +20,20 @@ require('dotenv').config()
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Middleware for parsing request body
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-//  enable CORS for all origins
-const cors = require('cors')
-app.use(cors());
+// Enable CORS for specific origin
+const corsOptions = {
+    origin: 'https://backendmachinegenius.onrender.com/transcript-audio', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Preflight requests handling
 
 
 // import routes file
