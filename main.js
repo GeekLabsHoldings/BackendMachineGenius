@@ -23,7 +23,15 @@ app.use(bodyParser.json());
 
 //  enable CORS for all origins
 const cors = require('cors')
-app.use(cors());
+const corsOptions = {
+    origin: 'https://backendmachinegenius.onrender.com', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Preflight requests handling
 
 
 // import routes file
