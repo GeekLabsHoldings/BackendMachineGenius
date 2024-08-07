@@ -1,8 +1,22 @@
 const content_dataBase = require("../../Models/Content/content_model");
 
 const get_all_content = async (req , res) => {
-    const content = await content_dataBase.find({},{"__v" : false});
-    res.json(content);
+    const querying = req.query
+    
+    console.log(querying)
+
+    const LIMIT = querying.limit;
+    const PAGE = querying.page;
+    const SKIP = (PAGE - 1) * LIMIT;
+    try
+    {
+        const content = await content_dataBase.find({},{"__v" : false}).limit(LIMIT).skip(SKIP);;
+        res.json(content);
+    }
+    catch(err)
+    {
+        res.status(500).json({ error: error.message });
+    }
 }
 
 const add_new_content = async (req, res) => {
