@@ -13,5 +13,6 @@ router.post('/content', contentControllers.add_new_content);
 
 router.patch('/content/:id', contentControllers.update_content);
 
+router.delete('/content/:id', contentControllers.delete_content);
 
 module.exports = router

@@ -39,7 +39,7 @@ const add_new_content = async (req, res) => {
 const update_content = async (req,res) =>{
     let content_id= req.params.id;
  
-    // find the index of this product 
+    // find the index of this content 
     const content = await content_dataBase.findById(content_id)
  
     if(!content)
@@ -53,9 +53,24 @@ const update_content = async (req,res) =>{
     res.json(new_content);
 }
 
+const delete_content = async (req,res) =>{
+    try {
+        let content_id = req.params.id;
+        const content = await content_dataBase.findByIdAndDelete(content_id);
+        if (content) {
+            res.json({message: 'This Content has been deleted Successfully' , content});
+        } else {;
+            res.status(404).send({message: "This Content does not exist"});
+        }
+    } catch (error) {
+        console.error("Error deleting Content:", error);
+        res.status(500).send({message: "Internal Server Error"});
+    }
+}
 module.exports =
 {
     get_all_content,
     add_new_content,
-    update_content
+    update_content,
+    delete_content
 }
