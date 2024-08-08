@@ -1,4 +1,6 @@
+require('dotenv').config()
 const content_dataBase = require("../../Models/Content/content_model");
+const mongoose = require("mongoose");
 
 const get_all_content = async (req , res) => {
     const querying = req.query
@@ -20,34 +22,46 @@ const get_all_content = async (req , res) => {
 }
 
 const add_new_content = async (req, res) => {
-    const {content_title , content , brand , content_type , views , date , approvals , movie , SEO } = req.body
+    const { user_id, content_title, content, brand, content_type, views, date, approvals, movie, SEO } = req.body;
+    
+    try {
+        if (!mongoose.connection.readyState) {
+            await mongoose.connect(process.env.MONGO_URL);
+        }
 
-    const content_exist = await content_dataBase.findOne({content_title : content_title});
-    if(content_exist)
-    {
-        return res.status(400).send({message:"content already exist"})    
-    }    
+        const db = mongoose.connection.useDb("test");
+        const employeesCollection = db.collection("employees");
 
-    const new_content = new content_dataBase ({
-        content_title,
-        content,
-        brand ,
-        content_type, 
-        views,
-        date,
-        approvals,
-        movie,
-        SEO
-    })   
+        const emp_exist = await employeesCollection.findOne({ _id: new mongoose.Types.ObjectId(user_id) });
+        if (!emp_exist) {
+            return res.status(404).json({ message: "Employee not found" });
+        }
 
-    await  new_content.save()
-    .then(()=>{
-        res.status(201).json(new_content)
-    })
-    .catch((error)=> {
-        console.log(`${error}`)
-        res.status(400).json({ message : 'There are '+ error})
-    })    
+        const content_exist = await content_dataBase.findOne({ content_title });
+        if (content_exist) {
+            return res.status(400).json({ message: "Content already exists" });
+        }
+
+        const new_content = new content_dataBase({
+            user_id,
+            content_title,
+            content,
+            brand,
+            content_type,
+            views,
+            date,
+            approvals,
+            movie,
+            SEO
+        });
+
+        await new_content.save();
+        return res.status(201).json(new_content);
+
+    } catch (error) {
+        console.error("Error occurred:", error);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
 };
 
 const update_content = async (req,res) =>{
@@ -81,10 +95,25 @@ const delete_content = async (req,res) =>{
         res.status(500).send({message: "Internal Server Error"});
     }
 }
+
+const delete_all_content = async (req,res) =>{
+    try {
+        const result = await content_dataBase.deleteMany({})
+        if (result) {
+            res.json({message: 'All Contents has been deleted Successfully' });
+        }
+    } catch (error) {
+        console.error("Error deleting Content:", error);
+        res.status(500).send({message: "Internal Server Error"});
+    }
+}
+
+
 module.exports =
 {
     get_all_content,
     add_new_content,
     update_content,
-    delete_content
+    delete_content,
+    delete_all_content
 }

@@ -2,10 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const contentTypes = require("../../Utilites/content_types")
 const approvalTypes = require("../../Utilites/approval_types")
-// const validator  = require('validator');
-// Create User schema
 
 const contentSchema = new Schema({
+  user_id:
+  {
+    type: String,
+    unique: false,
+    required: true, 
+  },
   content_title: 
   {
     type: String,

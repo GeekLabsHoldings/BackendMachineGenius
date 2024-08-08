@@ -15,4 +15,6 @@ router.patch('/content/:id', contentControllers.update_content);
 
 router.delete('/content/:id', contentControllers.delete_content);
 
+router.delete('/content', contentControllers.delete_all_content);
+
 module.exports = router

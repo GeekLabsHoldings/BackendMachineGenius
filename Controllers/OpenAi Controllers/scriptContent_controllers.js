@@ -5,16 +5,13 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const add_to_temp = async (title, content) => {
+const add_to_temp = async (title, content ) => {
   const new_temp = new temp_dataBase({
       title,
       content,
   })   
 
   await new_temp.save()
-  .then(()=>{
-      res.status(201).json(new_temp)
-  })
   .catch((error)=> {
       console.log(`${error}`)
       res.status(400).json({ message : 'There are '+ error})
